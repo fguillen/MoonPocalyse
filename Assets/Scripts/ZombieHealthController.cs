@@ -10,8 +10,8 @@ public class HealthModificatedEvent : UnityEvent<float>
 
 public class ZombieHealthController : MonoBehaviour
 {
-    [SerializeField] float life = 10;
-    [SerializeField] float defense = 1;
+    [HideInInspector] public float life;
+    [HideInInspector] public float defense;
 
     public HealthModificatedEvent healthModificatedEvent;
 

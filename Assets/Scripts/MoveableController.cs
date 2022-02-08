@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class MoveableController : MonoBehaviour
 {
-    [SerializeField] float speed = 0f;
+    [SerializeField] public float speed = 0f;
     protected Vector2 direction = Vector2.zero;
     Rigidbody2D rbody;
 

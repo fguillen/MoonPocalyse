@@ -25,14 +25,16 @@ public class ZombieHealthController : MonoBehaviour
     {
         float totalDamage = projectile.damage - this.defense; // TODO: limit to >= 0
         this.life -= totalDamage;
-
-        healthModificatedEvent.Invoke(totalDamage);
+        // Debug.Log($"damage: {projectile.damage}, totalDamage: {totalDamage}, life: {life}");
 
         if(life <= 0)
             Death();
+
+        healthModificatedEvent.Invoke(totalDamage);
     }
 
     void Death() {
         Debug.Log("Zombie death");
+        Destroy(gameObject);
     }
 }

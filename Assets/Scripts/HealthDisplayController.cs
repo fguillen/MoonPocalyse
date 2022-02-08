@@ -10,7 +10,7 @@ public class HealthDisplayController : MonoBehaviour
 
     public void Show(float value)
     {
-        Debug.Log($"HealthDisplayController.Show({value})");
+        // Debug.Log($"HealthDisplayController.Show({value})");
         TMP_Text textField = Instantiate(textFieldPrefab, this.transform.position, Quaternion.identity);
         textField.text = $"-{value}";
         // textField.transform.position = this.transform.position;

@@ -206,6 +206,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  gemPrefab: {fileID: 4035656957329421044, guid: 59776340943aa453a9eec49cfcb0d862, type: 3}
 --- !u!70 &1886115753429469795
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -242,7 +243,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1886115753429469806
 MonoBehaviour:
   m_ObjectHideFlags: 0

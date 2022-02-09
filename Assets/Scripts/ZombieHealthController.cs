@@ -15,16 +15,18 @@ public class ZombieHealthController : MonoBehaviour
 
     public HealthModificatedEvent healthModificatedEvent;
 
+    [SerializeField] GameObject gemPrefab;
+
     void Awake()
     {
-        if(this.healthModificatedEvent == null)
-            this.healthModificatedEvent = new HealthModificatedEvent();
+        if(healthModificatedEvent == null)
+            healthModificatedEvent = new HealthModificatedEvent();
     }
 
     public void Impact(ProjectileController projectile)
     {
-        float totalDamage = projectile.damage - this.defense; // TODO: limit to >= 0
-        this.life -= totalDamage;
+        float totalDamage = projectile.damage - defense; // TODO: limit to >= 0
+        life -= totalDamage;
         // Debug.Log($"damage: {projectile.damage}, totalDamage: {totalDamage}, life: {life}");
 
         if(life <= 0)
@@ -35,6 +37,7 @@ public class ZombieHealthController : MonoBehaviour
 
     void Death() {
         Debug.Log("Zombie death");
+        Instantiate(gemPrefab, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }

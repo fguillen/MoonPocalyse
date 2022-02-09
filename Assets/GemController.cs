@@ -19,12 +19,19 @@ public class GemController : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            GameManagerController.instance.playerController.CollectGem(this);
-            float animationDuration = 0.5f;
-            Sequence sequence = DOTween.Sequence();
-            sequence.Append(transform.DOLocalMove((Vector2)transform.position + (Vector2.up * 2f), animationDuration));
-            sequence.Insert(animationDuration * 0.5f, DOTween.ToAlpha(()=> spriteRenderer.color, x=> spriteRenderer.color = x, 0, animationDuration * 0.5f));
-            sequence.OnComplete(() => Destroy(this));
+            Collect();
         }
+    }
+
+    void Collect() {
+        GameManagerController.instance.playerController.CollectGem(this);
+        GameManagerController.instance.manaBarController.AddMana(this.mana);
+
+        // Animation
+        float animationDuration = 0.5f;
+        Sequence sequence = DOTween.Sequence();
+        sequence.Append(transform.DOLocalMove((Vector2)transform.position + (Vector2.up * 2f), animationDuration));
+        sequence.Insert(animationDuration * 0.5f, DOTween.ToAlpha(()=> spriteRenderer.color, x=> spriteRenderer.color = x, 0, animationDuration * 0.5f));
+        sequence.OnComplete(() => Destroy(this));
     }
 }

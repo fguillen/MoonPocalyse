@@ -10,4 +10,6 @@ public class GameManagerController : MonoBehaviour
     {
         GameManagerController.instance = this;
     }
+
+
 }

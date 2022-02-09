@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -15,7 +16,9 @@ public class ZombieHealthController : MonoBehaviour
 
     public HealthModificatedEvent healthModificatedEvent;
 
-    [SerializeField] GameObject gemPrefab;
+    [SerializeField] GameObject gemGreenPrefabs;
+    [SerializeField] GameObject gemPurplePrefabs;
+    [SerializeField] [Range(0,1)] float probabilityOfPurpleGem;
 
     void Awake()
     {
@@ -37,7 +40,16 @@ public class ZombieHealthController : MonoBehaviour
 
     void Death() {
         Debug.Log("Zombie death");
-        Instantiate(gemPrefab, transform.position, Quaternion.identity);
+        GameObject gem;
+
+        if(Random.value < probabilityOfPurpleGem)
+        {
+            gem = gemPurplePrefabs;
+        } else {
+            gem = gemGreenPrefabs;
+        }
+
+        Instantiate(gem, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }

@@ -206,7 +206,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  gemPrefab: {fileID: 4035656957329421044, guid: 59776340943aa453a9eec49cfcb0d862, type: 3}
+  gemGreenPrefabs: {fileID: 8824344558207603227, guid: 3191beb1dadc242798e03bdd02381b53, type: 3}
+  gemPurplePrefabs: {fileID: 8824344558207603227, guid: 6f149e52e3fc24ab38ef512e6e1c5bb1, type: 3}
+  probabilityOfPurpleGem: 0.5
 --- !u!70 &1886115753429469795
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

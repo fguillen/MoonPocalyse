@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 019aa44a824144bb4beff9651cefdac7, type: 3}
   m_Name: GemPurple
   m_EditorClassIdentifier: 
-  mana: 0
+  mana: 5
   sprite: {fileID: -2208650096276337814, guid: 004aad77cf0224ab2ac497106f00a892, type: 3}

@@ -30,7 +30,10 @@ public class InGameShopController : MonoBehaviour
 
     public void PopulateButtons()
     {
-        // buttonsPanel.transform.DetachChildren.destroy;
+        // Remove old Children
+        foreach (Transform child in buttonsPanel.transform) {
+            GameObject.Destroy(child.gameObject);
+        }
 
         System.Random rnd = new System.Random();
         List<InGameShopItemScriptable> randomItems = inGameShopItems.OrderBy(x => rnd.Next()).Take(3).ToList();

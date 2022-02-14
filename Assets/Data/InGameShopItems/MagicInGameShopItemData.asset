@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 3884029317713447782, guid: 6d94e60f9661f40afa0597ab25ab4b19, type: 3}
   description: This is a Big Magic
+  gunData: {fileID: 11400000, guid: ef9675c8255d048019b8d37e085c430f, type: 2}

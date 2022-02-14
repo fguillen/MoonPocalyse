@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ff7bbf7c4736459db79528a9cf29a47, type: 3}
+  m_Name: LaserGunData
+  m_EditorClassIdentifier: 
+  name: Laser Gun
+  sprite: {fileID: 4759044914093437886, guid: 6d94e60f9661f40afa0597ab25ab4b19, type: 3}
+  bulletData: {fileID: 11400000, guid: 972c99f4139a54817aeb3d0cea6db253, type: 2}
+  coldDownSeconds: 0.5

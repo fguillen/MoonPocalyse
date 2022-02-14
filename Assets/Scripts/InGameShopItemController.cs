@@ -18,4 +18,9 @@ public class InGameShopItemController : MonoBehaviour
         image.sprite = data.sprite;
         textField.text = data.description;
     }
+
+    public void Acquire()
+    {
+        GameManagerController.instance.AcquireInGameItem(data);
+    }
 }

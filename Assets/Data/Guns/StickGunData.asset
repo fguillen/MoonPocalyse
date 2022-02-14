@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0aac31bad7eb477d8de453f41c5bc68, type: 3}
-  m_Name: StickInGameShopItemData
+  m_Script: {fileID: 11500000, guid: 3ff7bbf7c4736459db79528a9cf29a47, type: 3}
+  m_Name: StickGunData
   m_EditorClassIdentifier: 
+  name: Stick Gun
   sprite: {fileID: -6022885623528695077, guid: 6d94e60f9661f40afa0597ab25ab4b19, type: 3}
-  description: This is a Big Stick
-  gunData: {fileID: 11400000, guid: ef9675c8255d048019b8d37e085c430f, type: 2}
+  bulletData: {fileID: 11400000, guid: a193a9d6fc3004807a43ccb48be30948, type: 2}
+  coldDownSeconds: 0.5

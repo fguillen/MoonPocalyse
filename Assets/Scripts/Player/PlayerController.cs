@@ -9,6 +9,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject gunPrefab;
     [SerializeField] GunScriptable firstGun;
 
+    public PlayerMovementController playerMovementController;
+
+    void Awake()
+    {
+        playerMovementController = GetComponent<PlayerMovementController>();
+    }
+
     void Start()
     {
         AcquireGun(firstGun);
@@ -24,5 +31,10 @@ public class PlayerController : MonoBehaviour
     {
         GunController gunController = Instantiate(gunPrefab, gunsCollection).GetComponent<GunController>();
         gunController.SetGunData(gunData);
+    }
+
+    public Vector2 GetLastDirection()
+    {
+        return playerMovementController.lastDirection;
     }
 }

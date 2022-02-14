@@ -33,7 +33,19 @@ public class BulletController : MonoBehaviour
 
         PlayerController playerController = GameManagerController.instance.playerController;
         transform.position = playerController.transform.position;
-        direction = Vector2.right;
+        SetDirection();
+        SetRotation();
+    }
+
+    void SetDirection()
+    {
+        direction = GameManagerController.instance.playerController.playerMovementController.lastHorizontalDirection;
+    }
+
+    void SetRotation()
+    {
+        if(direction.x < 0)
+            transform.localScale = new Vector3(-1, 1, 1);
     }
 
     public void Move()

@@ -2,32 +2,14 @@ using UnityEngine;
 using UnityEngine.Events;
 
 
-[System.Serializable]
-public class ManaCollectedEvent : UnityEvent<int>
-{
-}
-
-
 public class PlayerController : MonoBehaviour
 {
-    public PlayerMovementController playerMovementController;
-    public int mana;
+    public float mana;
     [SerializeField] Transform gunsCollection;
 
-    public ManaCollectedEvent manaCollectedEvent;
-
-    void Awake()
+    public void AddMana(float mana)
     {
-        playerMovementController = gameObject.GetComponent<PlayerMovementController>();
-
-        if(manaCollectedEvent == null)
-            manaCollectedEvent = new ManaCollectedEvent();
-    }
-
-    public void CollectGem(GemController gemController)
-    {
-        manaCollectedEvent.Invoke(gemController.mana);
-        mana += gemController.mana;
+        this.mana += mana;
         Debug.Log($"mana: {mana}");
     }
 

@@ -5,6 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Gem", menuName = "Gem")]
 public class GemScriptable : ScriptableObject
 {
-    public int mana;
+    public float mana;
     public Sprite sprite;
 }

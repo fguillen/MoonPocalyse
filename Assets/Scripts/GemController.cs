@@ -7,12 +7,10 @@ public class GemController : MonoBehaviour
 {
     [SerializeField] GemScriptable gemData;
     [SerializeField] SpriteRenderer spriteRenderer;
-    [HideInInspector] public int mana;
 
     void Awake()
     {
         spriteRenderer.sprite = gemData.sprite;
-        mana = gemData.mana;
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -24,8 +22,7 @@ public class GemController : MonoBehaviour
     }
 
     void Collect() {
-        GameManagerController.instance.playerController.CollectGem(this);
-        GameManagerController.instance.manaBarController.AddMana(this.mana);
+        GameManagerController.instance.CollectMana(gemData.mana);
 
         // Animation
         float animationDuration = 0.5f;

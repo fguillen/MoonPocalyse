@@ -22,4 +22,10 @@ public class GameManagerController : MonoBehaviour
         inGameShopController.Hide();
         manaBarController.Reset();
     }
+
+    public void CollectMana(float mana)
+    {
+        playerController.AddMana(mana);
+        manaBarController.AddMana(mana);
+    }
 }

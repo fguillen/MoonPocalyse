@@ -16,7 +16,7 @@ public class ManaBarController : MonoBehaviour
         slider.maxValue = value;
     }
 
-    public void AddMana(int value) {
+    public void AddMana(float value) {
         slider.value += value;
 
         if(slider.value >= slider.maxValue)

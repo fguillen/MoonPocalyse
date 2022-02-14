@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5556337546416571892}
   - component: {fileID: 5556337546416571891}
   m_Layer: 0
-  m_Name: ZombiesSpawner
+  m_Name: EnemiesSpawner
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0

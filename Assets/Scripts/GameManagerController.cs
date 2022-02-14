@@ -17,10 +17,11 @@ public class GameManagerController : MonoBehaviour
         inGameShopController.Show();
     }
 
-    public void AcquireInGameItem(InGameShopItemScriptable itemData)
+    public void AcquireGun(GunScriptable gunData)
     {
         inGameShopController.Hide();
         manaBarController.Reset();
+        playerController.AcquireGun(gunData);
     }
 
     public void CollectMana(float mana)

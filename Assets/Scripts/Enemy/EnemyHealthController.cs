@@ -30,7 +30,7 @@ public class EnemyHealthController : MonoBehaviour
     {
         float totalDamage = damage - defense; // TODO: limit to >= 0
         life -= totalDamage;
-        // Debug.Log($"damage: {projectile.damage}, totalDamage: {totalDamage}, life: {life}");
+        Debug.Log($"damage: {damage}, totalDamage: {totalDamage}, life: {life}");
 
         if(life <= 0)
             Death();

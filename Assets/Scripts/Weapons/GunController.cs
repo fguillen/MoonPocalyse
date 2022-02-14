@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class GunController : MonoBehaviour
 {
-    [SerializeField] GunScriptable gunData;
-    float lastShootAt;
-
     [SerializeField] GameObject bulletPrefab;
-    [SerializeField] BulletScriptable bulletData;
+    [SerializeField] GunScriptable gunData;
+
+    float lastShootAt;
 
     void Update()
     {
@@ -21,13 +20,18 @@ public class GunController : MonoBehaviour
         Shoot();
     }
 
+    public void SetGunData(GunScriptable gunData)
+    {
+        this.gunData = gunData;
+    }
+
     void Shoot()
     {
         Debug.Log($"Gun [{gunData.name}] Shoo()");
         Debug.Log("bulletPrefab: " + bulletPrefab);
         BulletController bullet = Instantiate(bulletPrefab, GameManagerController.instance.playerController.transform.position, Quaternion.identity).GetComponent<BulletController>();
 
-        bullet.SetBulletData(bulletData);
+        bullet.SetBulletData(gunData.bulletData);
         lastShootAt = Time.time;
     }
 }

@@ -6,21 +6,21 @@ using TMPro;
 
 public class InGameShopItemController : MonoBehaviour
 {
-    InGameShopItemScriptable data;
+    GunScriptable gunData;
 
     [SerializeField] Image image;
     [SerializeField] TMP_Text textField;
 
-    public void SetData(InGameShopItemScriptable data)
+    public void SetData(GunScriptable gunData)
     {
-        this.data = data;
+        this.gunData = gunData;
 
-        image.sprite = data.sprite;
-        textField.text = data.description;
+        image.sprite = gunData.sprite;
+        textField.text = gunData.description;
     }
 
     public void Acquire()
     {
-        GameManagerController.instance.AcquireInGameItem(data);
+        GameManagerController.instance.AcquireGun(gunData);
     }
 }

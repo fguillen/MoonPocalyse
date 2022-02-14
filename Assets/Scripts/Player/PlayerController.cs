@@ -6,6 +6,13 @@ public class PlayerController : MonoBehaviour
 {
     public float mana;
     [SerializeField] Transform gunsCollection;
+    [SerializeField] GameObject gunPrefab;
+    [SerializeField] GunScriptable firstGun;
+
+    void Start()
+    {
+        AcquireGun(firstGun);
+    }
 
     public void AddMana(float mana)
     {
@@ -13,8 +20,9 @@ public class PlayerController : MonoBehaviour
         Debug.Log($"mana: {mana}");
     }
 
-    public void AcquireGun(GunController gun)
+    public void AcquireGun(GunScriptable gunData)
     {
-        gun.transform.SetParent(gunsCollection);
+        GunController gunController = Instantiate(gunPrefab, gunsCollection).GetComponent<GunController>();
+        gunController.SetGunData(gunData);
     }
 }

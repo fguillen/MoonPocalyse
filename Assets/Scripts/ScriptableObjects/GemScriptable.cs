@@ -6,5 +6,6 @@ using UnityEngine;
 public class GemScriptable : ScriptableObject
 {
     public float mana;
+    public string description;
     public Sprite sprite;
 }

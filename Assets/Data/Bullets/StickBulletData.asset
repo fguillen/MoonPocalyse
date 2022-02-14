@@ -16,4 +16,4 @@ MonoBehaviour:
   sprite: {fileID: -6022885623528695077, guid: 6d94e60f9661f40afa0597ab25ab4b19, type: 3}
   numHits: 1
   trajectoryKind: 0
-  speed: 1
+  speed: 3

@@ -45,15 +45,12 @@ public class BulletController : MonoBehaviour
 
     void Impact(EnemyHealthController healthController)
     {
-        Debug.Log("Impact()");
         healthController.Impact(bulletData.damage);
         Destroy(gameObject);
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("OnTriggerEnter2D()");
-
         if(other.CompareTag("Enemy"))
         {
             Impact(other.GetComponent<EnemyHealthController>());

@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemiesSpawnerController : MonoBehaviour
 {
     [SerializeField] GameObject enemyPrefab;
-    [SerializeField] float enemiesPerSecond;
+    [SerializeField] EnemySpawnerScriptable enemySpawnerData;
     float nextEnemyAt;
 
     void Awake()
@@ -21,7 +21,8 @@ public class EnemiesSpawnerController : MonoBehaviour
 
     void SpawnEnemy()
     {
-        Instantiate(enemyPrefab, this.transform);
-        nextEnemyAt = Time.time + (1 / enemiesPerSecond);
+        EnemyController enemyController = Instantiate(enemyPrefab, this.transform).GetComponent<EnemyController>();
+        enemyController.SetEnemyData(enemySpawnerData.enemyData);
+        nextEnemyAt = Time.time + (1 / enemySpawnerData.enemiesPerSecond);
     }
 }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField] EnemyScriptable enemyData;
+    EnemyScriptable enemyData;
     EnemyHealthController zombieHealthController;
     EnemyMovementController enemyMovementController;
 
@@ -10,15 +10,18 @@ public class EnemyController : MonoBehaviour
 
     void Awake()
     {
-        this.zombieHealthController = GetComponent<EnemyHealthController>();
-        this.zombieHealthController.life = enemyData.life;
-        this.zombieHealthController.defense = enemyData.defense;
+        zombieHealthController = GetComponent<EnemyHealthController>();
+        enemyMovementController = GetComponent<EnemyMovementController>();
+    }
 
-        this.enemyMovementController = GetComponent<EnemyMovementController>();
-        this.enemyMovementController.speed = enemyData.speed;
+    public void SetEnemyData(EnemyScriptable enemyData)
+    {
+        this.enemyData = enemyData;
+        zombieHealthController.life = enemyData.life;
+        zombieHealthController.defense = enemyData.defense;
+        enemyMovementController.speed = enemyData.speed;
 
         // Image
         spriteRenderer.sprite = enemyData.sprite;
     }
-
 }

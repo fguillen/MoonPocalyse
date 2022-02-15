@@ -11,7 +11,10 @@ public class GunController : MonoBehaviour
 
     void Update()
     {
-        if(Time.time > lastShootAt + gunData.coldDownSeconds)
+        if(
+            (Time.time > lastShootAt + gunData.coldDownSeconds) &&
+            !GameManagerController.Instance.isPaused
+        )
             Shoot();
     }
 

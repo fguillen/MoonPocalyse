@@ -13,7 +13,8 @@ public class MoveableController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Move();
+        if(!GameManagerController.Instance.isPaused)
+            Move();
     }
 
     void Move()

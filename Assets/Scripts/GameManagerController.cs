@@ -9,6 +9,7 @@ public class GameManagerController : MonoBehaviour
     public ManaBarController manaBarController;
     public InGameShopController inGameShopController;
     public WeaponsBarController weaponsBarController;
+    public bool isPaused = false;
 
     void Awake()
     {
@@ -35,5 +36,10 @@ public class GameManagerController : MonoBehaviour
     {
         playerController.AddMana(mana);
         manaBarController.AddMana(mana);
+    }
+
+    public void SetPaused(bool value)
+    {
+        isPaused = value;
     }
 }

@@ -21,11 +21,13 @@ public class InGameShopController : MonoBehaviour
     {
         PopulateButtons();
         components.DOLocalMove(Vector3.zero, 0.5f);
+        GameManagerController.Instance.SetPaused(true);
     }
 
     public void Hide()
     {
         components.DOLocalMove(new Vector2(0, 1100), 0.5f);
+        GameManagerController.Instance.SetPaused(false);
     }
 
     public void PopulateButtons()

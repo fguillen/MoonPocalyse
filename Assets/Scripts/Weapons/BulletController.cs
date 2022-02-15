@@ -18,7 +18,8 @@ public class BulletController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Move();
+        if(!GameManagerController.Instance.isPaused)
+            Move();
     }
 
     public void SetBulletData(BulletScriptable bulletData)

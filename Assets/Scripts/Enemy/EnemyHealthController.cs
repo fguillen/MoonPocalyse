@@ -8,7 +8,9 @@ public class EnemyHealthController : MonoBehaviour
     [HideInInspector] public float life;
     [HideInInspector] public float defense;
 
-    public UnityEvent<float> healthModificatedEvent;
+    float maxLife;
+
+    public UnityEvent<float, float, float> healthModificatedEvent;
 
     [SerializeField] GameObject gemGreenPrefabs;
     [SerializeField] GameObject gemPurplePrefabs;
@@ -17,19 +19,26 @@ public class EnemyHealthController : MonoBehaviour
     void Awake()
     {
         if(healthModificatedEvent == null)
-            healthModificatedEvent = new UnityEvent<float>();
+            healthModificatedEvent = new UnityEvent<float, float, float>();
     }
 
     public void Impact(float damage)
     {
         float totalDamage = damage - defense; // TODO: limit to >= 0
         life -= totalDamage;
-        Debug.Log($"damage: {damage}, totalDamage: {totalDamage}, life: {life}");
+        Debug.Log($"damage: {damage}, totalDamage: {totalDamage}, life: {life}, maxLife: {maxLife}");
 
         if(life <= 0)
             Death();
 
-        healthModificatedEvent.Invoke(totalDamage);
+        healthModificatedEvent.Invoke(totalDamage, life, maxLife);
+    }
+
+    public void SetData(EnemyScriptable enemyData)
+    {
+        life = enemyData.life;
+        defense = enemyData.defense;
+        maxLife = life;
     }
 
     void Death() {

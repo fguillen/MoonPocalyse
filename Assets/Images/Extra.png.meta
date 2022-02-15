@@ -20,6 +20,12 @@ TextureImporter:
   - first:
       213: 1905157048910023509
     second: Extra_5
+  - first:
+      213: -9193491702364381962
+    second: Extra_6
+  - first:
+      213: 4723843297515268931
+    second: Extra_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -246,7 +252,7 @@ TextureImporter:
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 2, y: 2, z: 2, w: 2}
       outline: []
       physicsShape: []
@@ -254,6 +260,48 @@ TextureImporter:
       bones: []
       spriteID: 55b0d95fd3a707a10800000000000000
       internalID: 1905157048910023509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra_6
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 72
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fcd11381082a6080800000000000000
+      internalID: -9193491702364381962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra_7
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 72
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34be10b73767e8140800000000000000
+      internalID: 4723843297515268931
       vertices: []
       indices: 
       edges: []

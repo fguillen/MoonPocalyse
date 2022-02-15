@@ -3,22 +3,21 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     EnemyScriptable enemyData;
-    EnemyHealthController zombieHealthController;
+    EnemyHealthController enemyHealthController;
     EnemyMovementController enemyMovementController;
 
     [SerializeField] SpriteRenderer spriteRenderer;
 
     void Awake()
     {
-        zombieHealthController = GetComponent<EnemyHealthController>();
+        enemyHealthController = GetComponent<EnemyHealthController>();
         enemyMovementController = GetComponent<EnemyMovementController>();
     }
 
     public void SetEnemyData(EnemyScriptable enemyData)
     {
         this.enemyData = enemyData;
-        zombieHealthController.life = enemyData.life;
-        zombieHealthController.defense = enemyData.defense;
+        enemyHealthController.SetData(enemyData);
         enemyMovementController.speed = enemyData.speed;
 
         // Image

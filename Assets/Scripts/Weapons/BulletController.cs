@@ -5,6 +5,7 @@ public class BulletController : MonoBehaviour
 {
     [SerializeField] BulletScriptable bulletData;
     [SerializeField] SpriteRenderer spriteRenderer;
+    [SerializeField] float distanceToDestroy = 14f;
 
     int numHitsMade = 0;
     Vector2 direction;
@@ -19,7 +20,10 @@ public class BulletController : MonoBehaviour
     void FixedUpdate()
     {
         if(!GameManagerController.Instance.isPaused)
+        {
             Move();
+            CheckIfItMustBeDestroyed();
+        }
     }
 
     public void SetBulletData(BulletScriptable bulletData)
@@ -67,6 +71,14 @@ public class BulletController : MonoBehaviour
         if(other.CompareTag("Enemy"))
         {
             Impact(other.GetComponent<EnemyHealthController>());
+        }
+    }
+
+    void CheckIfItMustBeDestroyed()
+    {
+        if(Vector3.Distance(GameManagerController.Instance.playerController.transform.position, transform.position) > distanceToDestroy)
+        {
+            Destroy(gameObject);
         }
     }
 }

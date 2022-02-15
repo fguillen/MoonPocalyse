@@ -167,3 +167,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletData: {fileID: 11400000, guid: a193a9d6fc3004807a43ccb48be30948, type: 2}
   spriteRenderer: {fileID: 2522787399865911008}
+  distanceToDestroy: 20

@@ -24,7 +24,6 @@ public class PlayerController : MonoBehaviour
     public void AddMana(float mana)
     {
         this.mana += mana;
-        Debug.Log($"mana: {mana}");
     }
 
     public void AcquireGun(GunScriptable gunData)

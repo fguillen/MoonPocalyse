@@ -26,7 +26,6 @@ public class EnemyHealthController : MonoBehaviour
     {
         float totalDamage = damage - defense; // TODO: limit to >= 0
         life -= totalDamage;
-        Debug.Log($"damage: {damage}, totalDamage: {totalDamage}, life: {life}, maxLife: {maxLife}");
 
         if(life <= 0)
             Death();
@@ -42,7 +41,6 @@ public class EnemyHealthController : MonoBehaviour
     }
 
     void Death() {
-        Debug.Log("Zombie death");
         GameObject gem;
 
         if(Random.value < probabilityOfPurpleGem)

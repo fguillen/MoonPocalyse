@@ -28,7 +28,6 @@ public class MiniHealthBarController : MonoBehaviour
     public void SetValue(float actualValue, float maxValue)
     {
         float actualSliderScale = Mathf.Lerp(0, maxSliderSize, actualValue / maxValue);
-        Debug.Log($"SetValue({actualValue}, {maxValue}): {actualSliderScale}");
         slider.transform.localScale = new Vector3(actualSliderScale, slider.transform.localScale.y, slider.transform.localScale.z);
 
         Animate();

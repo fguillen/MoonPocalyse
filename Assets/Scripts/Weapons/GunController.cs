@@ -30,8 +30,6 @@ public class GunController : MonoBehaviour
 
     void Shoot()
     {
-        Debug.Log($"Gun [{gunData.name}] Shoo()");
-        Debug.Log("bulletPrefab: " + bulletPrefab);
         BulletController bullet = Instantiate(bulletPrefab, GameManagerController.Instance.playerController.transform.position, Quaternion.identity).GetComponent<BulletController>();
 
         bullet.SetBulletData(gunData.bulletData);

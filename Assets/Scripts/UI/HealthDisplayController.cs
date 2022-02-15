@@ -11,7 +11,6 @@ public class HealthDisplayController : MonoBehaviour
 
     public void Show(float damage, float life, float maxLife)
     {
-        Debug.Log($"HealthDisplayController.Show({damage}, {life}, {maxLife})");
         TMP_Text textField = Instantiate(textFieldPrefab, this.transform.position, Quaternion.identity);
         textField.text = $"-{damage}";
         // textField.transform.position = this.transform.position;

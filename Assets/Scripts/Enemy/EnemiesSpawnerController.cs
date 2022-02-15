@@ -15,7 +15,10 @@ public class EnemiesSpawnerController : MonoBehaviour
 
     void Update()
     {
-        if(Time.time > nextEnemyAt)
+        if(
+            (Time.time > nextEnemyAt) &&
+            !GameManagerController.Instance.isPaused
+        )
             SpawnEnemy();
     }
 

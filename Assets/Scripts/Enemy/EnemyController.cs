@@ -5,6 +5,7 @@ public class EnemyController : MonoBehaviour
     EnemyScriptable enemyData;
     EnemyHealthController enemyHealthController;
     EnemyMovementController enemyMovementController;
+    Rigidbody2D rbody;
 
     [SerializeField] SpriteRenderer spriteRenderer;
 
@@ -12,6 +13,7 @@ public class EnemyController : MonoBehaviour
     {
         enemyHealthController = GetComponent<EnemyHealthController>();
         enemyMovementController = GetComponent<EnemyMovementController>();
+        rbody = GetComponent<Rigidbody2D>();
     }
 
     public void SetEnemyData(EnemyScriptable enemyData)
@@ -19,8 +21,18 @@ public class EnemyController : MonoBehaviour
         this.enemyData = enemyData;
         enemyHealthController.SetData(enemyData);
         enemyMovementController.speed = enemyData.speed;
-
-        // Image
         spriteRenderer.sprite = enemyData.sprite;
+        rbody.mass = enemyData.mass;
+    }
+
+    public void Impact(float damage, Vector2 impactPosition)
+    {
+        enemyHealthController.Impact(damage);
+        Vector2 impactDirection = (Vector2)transform.position - impactPosition;
+        impactDirection = new Vector2(impactDirection.x, 0).normalized;
+        Debug.Log($"impactDirection: {impactDirection}, bulletImpactEffect: {enemyData.bulletImpactEffect}");
+        rbody.velocity = Vector2.zero;
+        rbody.AddForce(impactDirection * enemyData.bulletImpactEffect, ForceMode2D.Impulse);
+        enemyMovementController.KnockOut(enemyData.knockOutTime);
     }
 }

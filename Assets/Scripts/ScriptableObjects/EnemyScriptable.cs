@@ -9,4 +9,7 @@ public class EnemyScriptable : ScriptableObject
     public float defense;
     public Sprite sprite;
     public float speed;
+    public float bulletImpactEffect;
+    public float mass;
+    public float knockOutTime;
 }

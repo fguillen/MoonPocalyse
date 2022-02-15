@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class MoveableController : MonoBehaviour
@@ -5,6 +6,8 @@ public class MoveableController : MonoBehaviour
     [SerializeField] public float speed = 0f;
     protected Vector2 direction = Vector2.zero;
     Rigidbody2D rbody;
+    bool knockedOut;
+    IEnumerator knockOutCoroutine;
 
     void Awake()
     {
@@ -13,7 +16,10 @@ public class MoveableController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(!GameManagerController.Instance.isPaused)
+        if(
+            !GameManagerController.Instance.isPaused &&
+            !knockedOut
+        )
             Move();
     }
 
@@ -27,5 +33,22 @@ public class MoveableController : MonoBehaviour
     public void SetDirection(Vector2 direction)
     {
         this.direction = direction;
+    }
+
+    public void KnockOut(float seconds)
+    {
+        if(knockOutCoroutine != null)
+            StopCoroutine(knockOutCoroutine);
+
+        knockOutCoroutine = KnockOutCoroutine(seconds);
+        StartCoroutine(knockOutCoroutine);
+    }
+
+    IEnumerator KnockOutCoroutine(float seconds)
+    {
+        direction = Vector2.zero;
+        knockedOut = true;
+        yield return new WaitForSeconds(seconds);
+        knockedOut = false;
     }
 }

@@ -60,9 +60,9 @@ public class BulletController : MonoBehaviour
         rBody.MovePosition(newPos);
     }
 
-    void Impact(EnemyHealthController healthController)
+    void Impact(EnemyController enemyController)
     {
-        healthController.Impact(bulletData.damage);
+        enemyController.Impact(bulletData.damage, transform.position);
         Destroy(gameObject);
     }
 
@@ -70,7 +70,7 @@ public class BulletController : MonoBehaviour
     {
         if(other.CompareTag("Enemy"))
         {
-            Impact(other.GetComponent<EnemyHealthController>());
+            Impact(other.GetComponent<EnemyController>());
         }
     }
 

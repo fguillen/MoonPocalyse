@@ -22,7 +22,7 @@ public class GemController : MonoBehaviour
     }
 
     void Collect() {
-        GameManagerController.instance.CollectMana(gemData.mana);
+        GameManagerController.Instance.CollectMana(gemData.mana);
 
         // Animation
         float animationDuration = 0.5f;

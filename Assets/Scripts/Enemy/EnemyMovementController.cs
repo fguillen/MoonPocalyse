@@ -9,7 +9,7 @@ public class EnemyMovementController : MoveableController
 
     void Start()
     {
-        this.gameManagerController = GameManagerController.instance;
+        this.gameManagerController = GameManagerController.Instance;
         this.playerController = this.gameManagerController.playerController;
     }
 

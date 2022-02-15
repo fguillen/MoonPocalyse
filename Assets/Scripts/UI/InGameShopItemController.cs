@@ -21,6 +21,6 @@ public class InGameShopItemController : MonoBehaviour
 
     public void Acquire()
     {
-        GameManagerController.instance.AcquireGun(gunData);
+        GameManagerController.Instance.AcquireGun(gunData);
     }
 }

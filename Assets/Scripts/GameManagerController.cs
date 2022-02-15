@@ -2,14 +2,19 @@ using UnityEngine;
 
 public class GameManagerController : MonoBehaviour
 {
-    public static GameManagerController instance;
+    private static GameManagerController instance;
+    public static GameManagerController Instance { get { return instance; } }
+
     public PlayerController playerController;
     public ManaBarController manaBarController;
     public InGameShopController inGameShopController;
 
     void Awake()
     {
-        GameManagerController.instance = this;
+        if (instance != null && instance != this)
+            Destroy(this.gameObject);
+        else
+            instance = this;
     }
 
     public void ManaBarFull()

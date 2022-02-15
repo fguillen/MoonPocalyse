@@ -25,7 +25,7 @@ public class ManaBarController : MonoBehaviour
 
     void Full()
     {
-        GameManagerController.instance.ManaBarFull();
+        GameManagerController.Instance.ManaBarFull();
     }
 
     public void Reset()

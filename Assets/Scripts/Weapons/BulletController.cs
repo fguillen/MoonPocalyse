@@ -31,7 +31,7 @@ public class BulletController : MonoBehaviour
     {
         spriteRenderer.sprite = bulletData.sprite;
 
-        PlayerController playerController = GameManagerController.instance.playerController;
+        PlayerController playerController = GameManagerController.Instance.playerController;
         transform.position = playerController.transform.position;
         SetDirection();
         SetRotation();
@@ -39,7 +39,7 @@ public class BulletController : MonoBehaviour
 
     void SetDirection()
     {
-        direction = GameManagerController.instance.playerController.playerMovementController.lastHorizontalDirection;
+        direction = GameManagerController.Instance.playerController.playerMovementController.lastHorizontalDirection;
     }
 
     void SetRotation()

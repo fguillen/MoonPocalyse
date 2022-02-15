@@ -19,7 +19,7 @@ public class HealthDisplayController : MonoBehaviour
         Sequence sequence = DOTween.Sequence();
         sequence.Append(textField.transform.DOLocalMove((Vector2)this.transform.position + (Vector2.up * 2f), animationDuration));
         sequence.Insert(animationDuration * 0.5f, DOTween.ToAlpha(()=> textField.color, x=> textField.color = x, 0, animationDuration * 0.5f));
-        sequence.OnComplete(() => Destroy(textField));
+        sequence.OnComplete(() => Destroy(textField.gameObject));
     }
 
 }

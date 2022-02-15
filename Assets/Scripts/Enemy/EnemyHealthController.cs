@@ -3,18 +3,12 @@ using UnityEngine;
 using UnityEngine.Events;
 
 
-[System.Serializable]
-public class HealthModificatedEvent : UnityEvent<float>
-{
-}
-
-
 public class EnemyHealthController : MonoBehaviour
 {
     [HideInInspector] public float life;
     [HideInInspector] public float defense;
 
-    public HealthModificatedEvent healthModificatedEvent;
+    public UnityEvent<float> healthModificatedEvent;
 
     [SerializeField] GameObject gemGreenPrefabs;
     [SerializeField] GameObject gemPurplePrefabs;
@@ -23,7 +17,7 @@ public class EnemyHealthController : MonoBehaviour
     void Awake()
     {
         if(healthModificatedEvent == null)
-            healthModificatedEvent = new HealthModificatedEvent();
+            healthModificatedEvent = new UnityEvent<float>();
     }
 
     public void Impact(float damage)

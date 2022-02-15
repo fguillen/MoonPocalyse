@@ -16,4 +16,4 @@ MonoBehaviour:
   description: 
   sprite: {fileID: 4759044914093437886, guid: 6d94e60f9661f40afa0597ab25ab4b19, type: 3}
   bulletData: {fileID: 11400000, guid: 972c99f4139a54817aeb3d0cea6db253, type: 2}
-  coldDownSeconds: 0.2
+  coldDownSeconds: 0.5

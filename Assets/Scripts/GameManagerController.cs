@@ -8,6 +8,7 @@ public class GameManagerController : MonoBehaviour
     public PlayerController playerController;
     public ManaBarController manaBarController;
     public InGameShopController inGameShopController;
+    public WeaponsBarController weaponsBarController;
 
     void Awake()
     {
@@ -27,6 +28,7 @@ public class GameManagerController : MonoBehaviour
         inGameShopController.Hide();
         manaBarController.Reset();
         playerController.AcquireGun(gunData);
+        weaponsBarController.AddWeapon(gunData);
     }
 
     public void CollectMana(float mana)

@@ -1,24 +1,20 @@
 using UnityEngine;
 using UnityEngine.Events;
-
+using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour
 {
     public float mana;
-    [SerializeField] Transform gunsCollection;
+    [SerializeField] Transform gunsCollectionTransform;
     [SerializeField] GameObject gunPrefab;
-    [SerializeField] GunScriptable firstGun;
 
+    public List<GunController> gunsCollection;
     public PlayerMovementController playerMovementController;
 
     void Awake()
     {
         playerMovementController = GetComponent<PlayerMovementController>();
-    }
-
-    void Start()
-    {
-        AcquireGun(firstGun);
+        gunsCollection = new List<GunController>();
     }
 
     public void AddMana(float mana)
@@ -26,10 +22,29 @@ public class PlayerController : MonoBehaviour
         this.mana += mana;
     }
 
-    public void AcquireGun(GunScriptable gunData)
+    public GunController AcquireGun(GunScriptable gunData)
     {
-        GunController gunController = Instantiate(gunPrefab, gunsCollection).GetComponent<GunController>();
+        GunController gunController = gunsCollection.Find( gunController => gunController.name == gunData.name );
+        if(gunController != null)
+            UpgradeGun(gunController);
+        else
+           gunController = AddGun(gunData);
+
+        return gunController;
+    }
+
+    GunController AddGun(GunScriptable gunData)
+    {
+        GunController gunController = Instantiate(gunPrefab, gunsCollectionTransform).GetComponent<GunController>();
         gunController.SetGunData(gunData);
+        gunsCollection.Add(gunController);
+
+        return gunController;
+    }
+
+    void UpgradeGun(GunController gunController)
+    {
+        gunController.Upgrade();
     }
 
     public Vector2 GetLastDirection()

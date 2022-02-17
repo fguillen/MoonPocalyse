@@ -6,9 +6,9 @@ public class WeaponsBarController : MonoBehaviour
 {
     [SerializeField] GameObject weaponsBarItemPrefab;
 
-    public void AddWeapon(GunScriptable gunData)
+    public void AddWeapon(GunController gunController)
     {
         WeaponsBarItemController weaponsBarItemController = Instantiate(weaponsBarItemPrefab, this.transform).GetComponent<WeaponsBarItemController>();
-        weaponsBarItemController.SetGunData(gunData);
+        weaponsBarItemController.SetGunController(gunController);
     }
 }

@@ -26,6 +26,12 @@ TextureImporter:
   - first:
       213: 4723843297515268931
     second: Extra_7
+  - first:
+      213: 1839970119226637319
+    second: Extra_8
+  - first:
+      213: -6675102796960876500
+    second: Extra_9
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -302,6 +308,48 @@ TextureImporter:
       bones: []
       spriteID: 34be10b73767e8140800000000000000
       internalID: 4723843297515268931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra_8
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 76
+        width: 1
+        height: 1
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70c36d92313e88910800000000000000
+      internalID: 1839970119226637319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra_9
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 76
+        width: 1
+        height: 1
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c283ee35f554d53a0800000000000000
+      internalID: -6675102796960876500
       vertices: []
       indices: 
       edges: []

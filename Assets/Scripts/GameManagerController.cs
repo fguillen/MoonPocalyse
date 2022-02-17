@@ -11,12 +11,19 @@ public class GameManagerController : MonoBehaviour
     public WeaponsBarController weaponsBarController;
     public bool isPaused = false;
 
+    [SerializeField] GunScriptable firstGun;
+
     void Awake()
     {
         if (instance != null && instance != this)
             Destroy(this.gameObject);
         else
             instance = this;
+    }
+
+    void Start()
+    {
+        AcquireGun(firstGun);
     }
 
     public void ManaBarFull()
@@ -28,8 +35,8 @@ public class GameManagerController : MonoBehaviour
     {
         inGameShopController.Hide();
         manaBarController.Reset();
-        playerController.AcquireGun(gunData);
-        weaponsBarController.AddWeapon(gunData);
+        GunController gunController = playerController.AcquireGun(gunData);
+        weaponsBarController.AddWeapon(gunController);
     }
 
     public void CollectMana(float mana)

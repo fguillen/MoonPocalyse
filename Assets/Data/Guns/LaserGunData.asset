@@ -14,10 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Laser Gun
   description: Laser Gun Description
-  gunSprite: {fileID: 0}
-  bulletSprite: {fileID: 0}
-  coldDownSeconds: 0.5
-  damage: 0
-  numHits: 0
+  gunSprite: {fileID: 4759044914093437886, guid: 6d94e60f9661f40afa0597ab25ab4b19, type: 3}
+  bulletSprite: {fileID: 1824268091788894927, guid: 004aad77cf0224ab2ac497106f00a892, type: 3}
   trajectoryKind: 0
-  speed: 0
+  coldDownSeconds: 0.5
+  damage: 5
+  numHits: 1
+  speed: 4
+  levels:
+  - coldDownDecrease: 0
+    damageIncrease: 0
+    speedIncrease: 30
+    numProjectilesIncrease: 0
+    numHitsIncrease: 0
+  - coldDownDecrease: 20
+    damageIncrease: 0
+    speedIncrease: 30
+    numProjectilesIncrease: 0
+    numHitsIncrease: 0

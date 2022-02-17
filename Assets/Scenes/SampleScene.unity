@@ -188,6 +188,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7bce6d496cf540ab95e2ab2e0e93126, type: 3}
+--- !u!4 &139041393 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 139041393, guid: 57efa9cdbf10441088154a1728ad3e2d, type: 3}
+  m_PrefabInstance: {fileID: 542727160}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &182588570 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2685684083673918903, guid: 6e9f12b11d8ff42e88ecb1f673897227, type: 3}
@@ -2587,6 +2592,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 731370145119801502, guid: 57efa9cdbf10441088154a1728ad3e2d, type: 3}
+      propertyPath: gunsCollectionTransform
+      value: 
+      objectReference: {fileID: 139041393}
     - target: {fileID: 8412434925891906896, guid: 57efa9cdbf10441088154a1728ad3e2d, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2762,6 +2771,7 @@ MonoBehaviour:
   inGameShopController: {fileID: 182588570}
   weaponsBarController: {fileID: 714503585}
   isPaused: 0
+  firstGun: {fileID: 11400000, guid: 0ac64fbea8c9b482994193a3ab3f0555, type: 2}
 --- !u!4 &707541238
 Transform:
   m_ObjectHideFlags: 0

@@ -13,11 +13,22 @@ MonoBehaviour:
   m_Name: StickGunData
   m_EditorClassIdentifier: 
   name: Stick Gun
-  description: Stick Gun
-  gunSprite: {fileID: 0}
-  bulletSprite: {fileID: 0}
-  coldDownSeconds: 0.5
-  damage: 0
-  numHits: 0
+  description: Stick Gun Description
+  gunSprite: {fileID: -6022885623528695077, guid: 6d94e60f9661f40afa0597ab25ab4b19, type: 3}
+  bulletSprite: {fileID: -6022885623528695077, guid: 6d94e60f9661f40afa0597ab25ab4b19, type: 3}
   trajectoryKind: 0
-  speed: 0
+  coldDownSeconds: 2
+  damage: 7
+  numHits: 2
+  speed: 3
+  levels:
+  - coldDownDecrease: 10
+    damageIncrease: 0
+    speedIncrease: 10
+    numProjectilesIncrease: 0
+    numHitsIncrease: 0
+  - coldDownDecrease: 0
+    damageIncrease: 0
+    speedIncrease: 0
+    numProjectilesIncrease: 1
+    numHitsIncrease: 0

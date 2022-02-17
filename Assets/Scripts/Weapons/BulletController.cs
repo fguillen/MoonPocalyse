@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
-    [SerializeField] BulletScriptable bulletData;
+    [SerializeField] GunScriptable gunData;
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] float distanceToDestroy = 14f;
 
@@ -26,15 +26,15 @@ public class BulletController : MonoBehaviour
         }
     }
 
-    public void SetBulletData(BulletScriptable bulletData)
+    public void SetGunData(GunScriptable gunData)
     {
-        this.bulletData = bulletData;
+        this.gunData = gunData;
         Initialize();
     }
 
     void Initialize()
     {
-        spriteRenderer.sprite = bulletData.sprite;
+        spriteRenderer.sprite = gunData.bulletSprite;
 
         PlayerController playerController = GameManagerController.Instance.playerController;
         transform.position = playerController.transform.position;
@@ -55,14 +55,14 @@ public class BulletController : MonoBehaviour
 
     public void Move()
     {
-        Vector2 adjustedMovement = direction * bulletData.speed * Time.fixedDeltaTime;
+        Vector2 adjustedMovement = direction * gunData.speed * Time.fixedDeltaTime;
         Vector2 newPos = rBody.position + adjustedMovement;
         rBody.MovePosition(newPos);
     }
 
     void Impact(EnemyController enemyController)
     {
-        enemyController.Impact(bulletData.damage, transform.position);
+        enemyController.Impact(gunData.damage, transform.position);
         Destroy(gameObject);
     }
 

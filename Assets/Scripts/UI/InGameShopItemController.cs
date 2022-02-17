@@ -15,7 +15,7 @@ public class InGameShopItemController : MonoBehaviour
     {
         this.gunData = gunData;
 
-        image.sprite = gunData.sprite;
+        image.sprite = gunData.gunSprite;
         textField.text = gunData.description;
     }
 

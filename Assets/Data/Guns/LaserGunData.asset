@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: LaserGunData
   m_EditorClassIdentifier: 
   name: Laser Gun
-  description: 
-  sprite: {fileID: 4759044914093437886, guid: 6d94e60f9661f40afa0597ab25ab4b19, type: 3}
-  bulletData: {fileID: 11400000, guid: 972c99f4139a54817aeb3d0cea6db253, type: 2}
+  description: Laser Gun Description
+  gunSprite: {fileID: 0}
+  bulletSprite: {fileID: 0}
   coldDownSeconds: 0.5
+  damage: 0
+  numHits: 0
+  trajectoryKind: 0
+  speed: 0

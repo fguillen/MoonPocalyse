@@ -32,7 +32,7 @@ public class GunController : MonoBehaviour
     {
         BulletController bullet = Instantiate(bulletPrefab, GameManagerController.Instance.playerController.transform.position, Quaternion.identity).GetComponent<BulletController>();
 
-        bullet.SetBulletData(gunData.bulletData);
+        bullet.SetGunData(gunData);
         lastShootAt = Time.time;
     }
 }

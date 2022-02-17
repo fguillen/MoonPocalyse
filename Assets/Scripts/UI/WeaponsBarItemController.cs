@@ -14,6 +14,6 @@ public class WeaponsBarItemController : MonoBehaviour
 
     public void SetGunData(GunScriptable gunData)
     {
-        image.sprite = gunData.sprite;
+        image.sprite = gunData.gunSprite;
     }
 }

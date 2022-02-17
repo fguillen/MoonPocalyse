@@ -6,17 +6,25 @@ public class EnemiesSpawnerController : MonoBehaviour
 {
     [SerializeField] GameObject enemyPrefab;
     [SerializeField] EnemySpawnerScriptable enemySpawnerData;
-    float nextEnemyAt;
+    float nextSpawnAt;
+    GameObject enemiesContainer;
 
     void Awake()
     {
-        nextEnemyAt = Time.time;
+        nextSpawnAt = Time.time;
+
+        enemiesContainer = GameObject.Find("EnemiesContainer");
+        if(enemiesContainer == null)
+        {
+            Debug.Log("EnemiesContainer Object not found, fallback to Spawner");
+            enemiesContainer = gameObject;
+        }
     }
 
     void Update()
     {
         if(
-            (Time.time > nextEnemyAt) &&
+            (Time.time > nextSpawnAt) &&
             !GameManagerController.Instance.isPaused
         )
             SpawnEnemy();
@@ -24,8 +32,13 @@ public class EnemiesSpawnerController : MonoBehaviour
 
     void SpawnEnemy()
     {
-        EnemyController enemyController = Instantiate(enemyPrefab, this.transform).GetComponent<EnemyController>();
-        enemyController.SetEnemyData(enemySpawnerData.enemyData);
-        nextEnemyAt = Time.time + (1 / enemySpawnerData.enemiesPerSecond);
+        int numEnemies = Random.Range(enemySpawnerData.numEnemiesPerSpawn.min, enemySpawnerData.numEnemiesPerSpawn.max);
+        for (int i = 0; i < numEnemies; i++)
+        {
+            EnemyController enemyController = Instantiate(enemyPrefab, transform.position, Quaternion.identity, enemiesContainer.transform).GetComponent<EnemyController>();
+            enemyController.SetEnemyData(enemySpawnerData.enemyData);
+        }
+
+        nextSpawnAt = Time.time + (1 / enemySpawnerData.spawnsPerSecond);
     }
 }

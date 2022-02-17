@@ -6,5 +6,6 @@ using UnityEngine;
 public class EnemySpawnerScriptable : ScriptableObject
 {
     public EnemyScriptable enemyData;
-    public float enemiesPerSecond;
+    public float spawnsPerSecond;
+    public MinMax<int> numEnemiesPerSpawn;
 }

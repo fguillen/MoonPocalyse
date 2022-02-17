@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: ZombieEnemySpawner
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: 66f15b86a4a774a6d84e4d836158d3b8, type: 2}
-  enemiesPerSecond: 0.1
+  spawnsPerSecond: 0.1
+  numEnemiesPerSpawn:
+    min: 1
+    max: 5

@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: ArmoredEnemySpawner
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: af9edd2add7e34182aa307f7690cff14, type: 2}
-  enemiesPerSecond: 0.05
+  spawnsPerSecond: 0.05
+  numEnemiesPerSpawn:
+    min: 1
+    max: 2

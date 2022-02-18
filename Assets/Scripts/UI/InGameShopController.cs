@@ -6,8 +6,7 @@ using DG.Tweening;
 public class InGameShopController : MonoBehaviour
 {
     [SerializeField] GameObject inGameItemPrefab;
-    [SerializeField] GameObject buttonsPanel;
-    [SerializeField] RectTransform components;
+    [SerializeField] GameObject components;
     PlayerGunsList playerGunsList;
 
     void Awake()
@@ -17,34 +16,34 @@ public class InGameShopController : MonoBehaviour
 
     void Start()
     {
-        components.localPosition = new Vector2(0, 1100);
+        components.transform.localPosition = new Vector2(0, 1100);
     }
 
     [ContextMenu("Show()")]
     public void Show()
     {
         PopulateButtons();
-        components.DOLocalMove(Vector3.zero, 0.5f);
+        components.transform.DOLocalMove(Vector3.zero, 0.5f);
         GameManagerController.Instance.SetPaused(true);
     }
 
     public void Hide()
     {
-        components.DOLocalMove(new Vector2(0, 1100), 0.5f);
+        components.transform.DOLocalMove(new Vector2(0, 1100), 0.5f);
         GameManagerController.Instance.SetPaused(false);
     }
 
     public void PopulateButtons()
     {
         // Remove old Children
-        foreach (Transform child in buttonsPanel.transform)
+        foreach (Transform child in components.transform)
             GameObject.Destroy(child.gameObject);
 
         System.Random rnd = new System.Random();
         List<InGameShopItemData> randomInGameShopItems = AllPossibleShopItems().OrderBy(x => rnd.Next()).Take(3).ToList();
         foreach (var inGameShopItem in randomInGameShopItems)
         {
-            InGameShopItemController item = Instantiate(inGameItemPrefab, buttonsPanel.transform).GetComponent<InGameShopItemController>();
+            InGameShopItemController item = Instantiate(inGameItemPrefab, components.transform).GetComponent<InGameShopItemController>();
             item.SetData(inGameShopItem);
         }
     }

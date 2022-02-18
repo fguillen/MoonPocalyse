@@ -8,6 +8,12 @@ public class InGameShopController : MonoBehaviour
     [SerializeField] GameObject inGameItemPrefab;
     [SerializeField] GameObject buttonsPanel;
     [SerializeField] RectTransform components;
+    PlayerGunsList playerGunsList;
+
+    void Awake()
+    {
+        playerGunsList = PlayerGunsList.Instance;
+    }
 
     void Start()
     {
@@ -35,18 +41,23 @@ public class InGameShopController : MonoBehaviour
             GameObject.Destroy(child.gameObject);
 
         System.Random rnd = new System.Random();
-        List<GunController> randomGuns = AllUpgradableGuns().OrderBy(x => rnd.Next()).Take(3).ToList();
-        foreach (var gunController in randomGuns)
+        List<GunScriptable> randomGuns = AllUpgradableGuns().OrderBy(x => rnd.Next()).Take(3).ToList();
+        foreach (var gunData in randomGuns)
         {
             InGameShopItemController item = Instantiate(inGameItemPrefab, buttonsPanel.transform).GetComponent<InGameShopItemController>();
-            item.SetData(gunController.gunData);
+            item.SetData(gunData);
         }
     }
 
-    List<GunController> AllUpgradableGuns()
+    List<GunScriptable> AllUpgradableGuns()
     {
-        PlayerController playerController = GameManagerController.Instance.playerController;
-        return playerController.gunsCollection.Where( gunController => gunController.level < gunController.gunData.levels.Count()).ToList();
+        List<GunScriptable> allGuns = GameManagerController.Instance.allGuns;
+        List<GunScriptable> notUpgradableGuns = playerGunsList.NoUpgradable().Select( gunController => gunController.gunData ).ToList();
+        List<GunScriptable> upgradableGuns = allGuns.Except(notUpgradableGuns).ToList();
+
+        Debug.Log($"allGuns: {allGuns.Count}, notUpgradableGuns: {notUpgradableGuns.Count}, upgradableGuns: {upgradableGuns.Count}");
+
+        return upgradableGuns;
     }
 
 }

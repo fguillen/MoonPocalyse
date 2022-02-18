@@ -32,7 +32,7 @@ public class WeaponsBarItemController : MonoBehaviour
             GameObject.Destroy(child.gameObject);
 
         // Recreate levels
-        for (int i = 0; i < gunController.gunData.levels.Count; i++)
+        for (int i = 0; i < gunController.gunData.levels.Count + 1; i++)
         {
             if(gunController.level >= i)
                 Instantiate(WeaponBarItemLevelCheckedPrefab, levelsTransform);

@@ -5,10 +5,30 @@ using UnityEngine;
 public class WeaponsBarController : MonoBehaviour
 {
     [SerializeField] GameObject weaponsBarItemPrefab;
+    [SerializeField] PlayerGunsList playerGunsList;
 
-    public void AddWeapon(GunController gunController)
+    void Awake()
     {
-        WeaponsBarItemController weaponsBarItemController = Instantiate(weaponsBarItemPrefab, this.transform).GetComponent<WeaponsBarItemController>();
+        playerGunsList = PlayerGunsList.Instance;
+        playerGunsList.onListChanged.AddListener(ReDraw);
+    }
+
+    void ReDraw()
+    {
+        // Remove old Children
+        foreach (Transform child in transform)
+            GameObject.Destroy(child.gameObject);
+
+        // Recreate Children
+        foreach (GunController gunController in playerGunsList.guns)
+            AddWeapon(gunController);
+    }
+
+    void AddWeapon(GunController gunController)
+    {
+        WeaponsBarItemController weaponsBarItemController = Instantiate(weaponsBarItemPrefab, transform).GetComponent<WeaponsBarItemController>();
         weaponsBarItemController.SetGunController(gunController);
     }
+
+
 }

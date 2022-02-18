@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class GameManagerController : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class GameManagerController : MonoBehaviour
     public bool isPaused = false;
 
     [SerializeField] GunScriptable firstGun;
+    [SerializeField] public List<GunScriptable> allGuns;
+    [SerializeField] TestScriptable testScriptable;
 
     void Awake()
     {
@@ -19,6 +22,8 @@ public class GameManagerController : MonoBehaviour
             Destroy(this.gameObject);
         else
             instance = this;
+
+        testScriptable.name = "New name";
     }
 
     void Start()
@@ -35,8 +40,7 @@ public class GameManagerController : MonoBehaviour
     {
         inGameShopController.Hide();
         manaBarController.Reset();
-        GunController gunController = playerController.AcquireGun(gunData);
-        weaponsBarController.AddWeapon(gunController);
+        playerController.AcquireGun(gunData);
     }
 
     public void CollectMana(float mana)

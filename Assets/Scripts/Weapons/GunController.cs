@@ -61,6 +61,7 @@ public class GunController : MonoBehaviour
     public void Upgrade()
     {
         GunLevel nextLevel = gunData.levels[level];
+        ApplyLevel(nextLevel);
         level += 1;
         onChangeEvent.Invoke();
     }

@@ -20,6 +20,7 @@ MonoBehaviour:
   coldDownSeconds: 2
   damage: 7
   numHits: 2
+  numProjectiles: 1
   speed: 3
   levels:
   - coldDownDecrease: 10

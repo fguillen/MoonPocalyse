@@ -20,12 +20,13 @@ MonoBehaviour:
   coldDownSeconds: 0.2
   damage: 5
   numHits: 1
+  numProjectiles: 1
   speed: 10
   levels:
   - coldDownDecrease: 0
-    damageIncrease: 2
+    damageIncrease: 20
     speedIncrease: 30
-    numProjectilesIncrease: 0
+    numProjectilesIncrease: 1
     numHitsIncrease: 0
   - coldDownDecrease: 20
     damageIncrease: 0

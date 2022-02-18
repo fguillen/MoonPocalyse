@@ -32,3 +32,8 @@ MonoBehaviour:
     speedIncrease: 0
     numProjectilesIncrease: 1
     numHitsIncrease: 0
+  - coldDownDecrease: 20
+    damageIncrease: 30
+    speedIncrease: 50
+    numProjectilesIncrease: 0
+    numHitsIncrease: 0

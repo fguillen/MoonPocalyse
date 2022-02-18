@@ -11,6 +11,7 @@ public class GunController : MonoBehaviour
     public float coldDownSeconds;
     public float damage;
     public int numHits;
+    public int numProjectiles;
     public float speed;
 
     public int level;
@@ -47,13 +48,27 @@ public class GunController : MonoBehaviour
         coldDownSeconds = gunData.coldDownSeconds;
         damage = gunData.damage;
         numHits = gunData.numHits;
+        numProjectiles = gunData.numProjectiles;
         speed = gunData.speed;
     }
 
     void Shoot()
     {
-        BulletController bullet = Instantiate(bulletPrefab, GameManagerController.Instance.playerController.transform.position, Quaternion.identity).GetComponent<BulletController>();
+        StartCoroutine(ShootCoroutine());
+    }
 
+    IEnumerator ShootCoroutine()
+    {
+        for (int i = 0; i < numProjectiles; i++)
+        {
+            ShootBullet();
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+    void ShootBullet()
+    {
+        BulletController bullet = Instantiate(bulletPrefab, GameManagerController.Instance.playerController.transform.position, Quaternion.identity).GetComponent<BulletController>();
         bullet.SetGunData(gunData);
         lastShootAt = Time.time;
     }
@@ -68,14 +83,11 @@ public class GunController : MonoBehaviour
 
     void ApplyLevel(GunLevel gunLevel)
     {
-        coldDownSeconds = coldDownSeconds - (gunLevel.coldDownDecrease / 100 * coldDownSeconds);
-        damage = damage + (gunLevel.damageIncrease / 100 * damage);
-        numHits = numHits + gunLevel.numHitsIncrease;
-        speed = speed + (gunLevel.speedIncrease / 100 * speed);
+        gunLevel.Apply(this);
     }
 
     public string StatsDescription()
     {
-        return $"[Level {level}] Cold down {coldDownSeconds}s, Damage: {damage}HP, Num hits: {numHits}, Speed: {speed}";
+        return $"[Level {level}] Cold down {coldDownSeconds}s, Damage: {damage}HP, Num projectiles: {numProjectiles}, Num hits: {numHits}, Speed: {speed}";
     }
 }

@@ -23,7 +23,7 @@ MonoBehaviour:
   speed: 10
   levels:
   - coldDownDecrease: 0
-    damageIncrease: 0
+    damageIncrease: 2
     speedIncrease: 30
     numProjectilesIncrease: 0
     numHitsIncrease: 0

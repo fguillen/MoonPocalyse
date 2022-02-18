@@ -18,6 +18,41 @@ public class GunLevel
     [Range(0, 100)] public int speedIncrease;
     [Range(0, 5)] public int numProjectilesIncrease;
     [Range(0, 10)] public int numHitsIncrease;
+
+    public String StatsDescription()
+    {
+        List<string> stats = new List<string>();
+
+        if(coldDownDecrease != 0)
+            stats.Add($"Cold down -{coldDownDecrease}%");
+
+        if(damageIncrease != 0)
+            stats.Add($"Damage +{damageIncrease}%");
+
+        if(speedIncrease != 0)
+            stats.Add($"Speed +{speedIncrease}%");
+
+        if(numProjectilesIncrease != 0)
+            stats.Add($"Num projectiles +{numProjectilesIncrease}");
+
+        if(numHitsIncrease != 0)
+            stats.Add($"Num hits +{numHitsIncrease}");
+
+        return String.Join(", ", stats);
+    }
+
+    public void Apply(GunController gunController)
+    {
+        Debug.Log($"ApplyLevel: [{this}]");
+        Debug.Log($"Level Stats: [{this.StatsDescription()}]");
+        Debug.Log($"Before: [{gunController.StatsDescription()}]");
+        gunController.coldDownSeconds = gunController.coldDownSeconds - (this.coldDownDecrease / 100f * gunController.coldDownSeconds);
+        gunController.damage = gunController.damage + (this.damageIncrease / 100f * gunController.damage);
+        gunController.numHits = gunController.numHits + this.numHitsIncrease;
+        gunController.numProjectiles = gunController.numProjectiles + this.numProjectilesIncrease;
+        gunController.speed = gunController.speed + (this.speedIncrease / 100f * gunController.speed);
+        Debug.Log($"After: [{gunController.StatsDescription()}]");
+    }
 }
 
 [CreateAssetMenu(fileName = "New Gun", menuName = "Gun")]
@@ -32,6 +67,7 @@ public class GunScriptable : ScriptableObject
     public float coldDownSeconds;
     public float damage;
     public int numHits;
+    public int numProjectiles;
     public float speed;
 
     public List<GunLevel> levels;
@@ -40,29 +76,12 @@ public class GunScriptable : ScriptableObject
     {
         if(level == 0)
         {
-            return $"Cold down {coldDownSeconds}s, Damage: {damage}HP, Num hits: {numHits}, Speed: {speed}";
+            return $"Cold down {coldDownSeconds}s, Damage: {damage}HP, Num projectiles: {numProjectiles}, Num hits: {numHits}, Speed: {speed}";
         }
         else
         {
-            List<string> stats = new List<string>();
             GunLevel gunLevel = levels[level - 1];
-
-            if(gunLevel.coldDownDecrease != 0)
-                stats.Add($"Cold down -{gunLevel.coldDownDecrease}%");
-
-            if(gunLevel.damageIncrease != 0)
-                stats.Add($"Damage +{gunLevel.damageIncrease}%");
-
-            if(gunLevel.speedIncrease != 0)
-                stats.Add($"Speed +{gunLevel.speedIncrease}%");
-
-            if(gunLevel.numProjectilesIncrease != 0)
-                stats.Add($"Num projectiles +{gunLevel.numProjectilesIncrease}");
-
-            if(gunLevel.numHitsIncrease != 0)
-                stats.Add($"Num hits +{gunLevel.numHitsIncrease}");
-
-            return String.Join(", ", stats);
+            return gunLevel.StatsDescription();
         }
     }
 }

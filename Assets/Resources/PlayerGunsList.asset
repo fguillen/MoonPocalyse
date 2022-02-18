@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8f99686339fd4be4a7b37339ec1697e, type: 3}
   m_Name: PlayerGunsList
   m_EditorClassIdentifier: 
-  guns: []
+  guns:
+  - {fileID: 0}
+  - {fileID: 0}
   onListChanged:
     m_PersistentCalls:
       m_Calls: []

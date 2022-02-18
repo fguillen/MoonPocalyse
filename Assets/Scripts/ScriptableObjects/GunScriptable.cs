@@ -35,4 +35,34 @@ public class GunScriptable : ScriptableObject
     public float speed;
 
     public List<GunLevel> levels;
+
+    public string StatsDescription(int level)
+    {
+        if(level == 0)
+        {
+            return $"Cold down {coldDownSeconds}s, Damage: {damage}HP, Num hits: {numHits}, Speed: {speed}";
+        }
+        else
+        {
+            List<string> stats = new List<string>();
+            GunLevel gunLevel = levels[level - 1];
+
+            if(gunLevel.coldDownDecrease != 0)
+                stats.Add($"Cold down -{gunLevel.coldDownDecrease}%");
+
+            if(gunLevel.damageIncrease != 0)
+                stats.Add($"Damage +{gunLevel.damageIncrease}%");
+
+            if(gunLevel.speedIncrease != 0)
+                stats.Add($"Speed +{gunLevel.speedIncrease}%");
+
+            if(gunLevel.numProjectilesIncrease != 0)
+                stats.Add($"Num projectiles +{gunLevel.numProjectilesIncrease}");
+
+            if(gunLevel.numHitsIncrease != 0)
+                stats.Add($"Num hits +{gunLevel.numHitsIncrease}");
+
+            return String.Join(", ", stats);
+        }
+    }
 }

@@ -41,23 +41,47 @@ public class InGameShopController : MonoBehaviour
             GameObject.Destroy(child.gameObject);
 
         System.Random rnd = new System.Random();
-        List<GunScriptable> randomGuns = AllUpgradableGuns().OrderBy(x => rnd.Next()).Take(3).ToList();
-        foreach (var gunData in randomGuns)
+        List<InGameShopItemData> randomInGameShopItems = AllPossibleShopItems().OrderBy(x => rnd.Next()).Take(3).ToList();
+        foreach (var inGameShopItem in randomInGameShopItems)
         {
             InGameShopItemController item = Instantiate(inGameItemPrefab, buttonsPanel.transform).GetComponent<InGameShopItemController>();
-            item.SetData(gunData);
+            item.SetData(inGameShopItem);
         }
     }
 
-    List<GunScriptable> AllUpgradableGuns()
+    // List<GunScriptable> AllUpgradableGuns()
+    // {
+    //     List<GunScriptable> allGuns = GameManagerController.Instance.allGuns;
+    //     List<GunScriptable> noUpgradableGuns = playerGunsList.NoUpgradable().Select( gunController => gunController.gunData ).ToList();
+    //     List<GunScriptable> upgradableGuns = allGuns.Except(noUpgradableGuns).ToList();
+
+    //     Debug.Log($"allGuns: {allGuns.Count}, noUpgradableGuns: {noUpgradableGuns.Count}, upgradableGuns: {upgradableGuns.Count}");
+
+    //     return upgradableGuns;
+    // }
+
+    List<InGameShopItemData> AllPossibleShopItems()
     {
         List<GunScriptable> allGuns = GameManagerController.Instance.allGuns;
-        List<GunScriptable> notUpgradableGuns = playerGunsList.NoUpgradable().Select( gunController => gunController.gunData ).ToList();
-        List<GunScriptable> upgradableGuns = allGuns.Except(notUpgradableGuns).ToList();
+        List<GunScriptable> upgradableGuns = playerGunsList.Upgradable().Select( gunController => gunController.gunData ).ToList();
+        List<GunScriptable> noUpgradableGuns = playerGunsList.NoUpgradable().Select( gunController => gunController.gunData ).ToList();
+        List<GunScriptable> newGuns = allGuns.Except(upgradableGuns).Except(noUpgradableGuns).ToList();
 
-        Debug.Log($"allGuns: {allGuns.Count}, notUpgradableGuns: {notUpgradableGuns.Count}, upgradableGuns: {upgradableGuns.Count}");
+        List<InGameShopItemData> inGameShopItems = new List<InGameShopItemData>();
 
-        return upgradableGuns;
+        foreach (var gunController in playerGunsList.Upgradable())
+        {
+            InGameShopItemData inGameShopItem = new InGameShopItemData(gunController.gunData, gunController.level + 1);
+            inGameShopItems.Add(inGameShopItem);
+        }
+
+        foreach (var gunData in newGuns)
+        {
+            InGameShopItemData inGameShopItem = new InGameShopItemData(gunData, 0);
+            inGameShopItems.Add(inGameShopItem);
+        }
+
+        return inGameShopItems;
     }
 
 }

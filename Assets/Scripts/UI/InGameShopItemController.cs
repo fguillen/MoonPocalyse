@@ -6,21 +6,35 @@ using TMPro;
 
 public class InGameShopItemController : MonoBehaviour
 {
-    GunScriptable gunData;
+    InGameShopItemData data;
 
     [SerializeField] Image image;
-    [SerializeField] TMP_Text textField;
+    [SerializeField] TMP_Text titleText;
+    [SerializeField] TMP_Text descriptionText;
 
-    public void SetData(GunScriptable gunData)
+    public void SetData(InGameShopItemData data)
     {
-        this.gunData = gunData;
+        this.data = data;
 
-        image.sprite = gunData.gunSprite;
-        textField.text = gunData.description;
+        image.sprite = data.gunData.gunSprite;
+        titleText.text = BuildTitle(data);
+        descriptionText.text = data.gunData.StatsDescription(data.level);
     }
 
     public void Acquire()
     {
-        GameManagerController.Instance.AcquireGun(gunData);
+        GameManagerController.Instance.AcquireGun(data.gunData);
+    }
+
+    string BuildTitle(InGameShopItemData data)
+    {
+        if(data.level == 0)
+        {
+            return $"new! {data.gunData.name}";
+        }
+        else
+        {
+            return $"{data.gunData.name} - Level {data.level}";
+        }
     }
 }

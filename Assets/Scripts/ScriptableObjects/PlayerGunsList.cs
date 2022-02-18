@@ -34,6 +34,11 @@ public class PlayerGunsList : SingletonScriptableObject<PlayerGunsList>
         return guns.Where( gunController => gunController.level >= gunController.gunData.levels.Count()).ToList();
     }
 
+    public List<GunController> Upgradable()
+    {
+        return guns.Where( gunController => gunController.level < gunController.gunData.levels.Count()).ToList();
+    }
+
     public void UpgradeGun(GunController gunController)
     {
         gunController.Upgrade();

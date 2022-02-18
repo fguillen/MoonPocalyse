@@ -103,3 +103,4 @@ fmod_editor.log
 
 # custom
 /.vscode/
+/Assets/AutoSave/

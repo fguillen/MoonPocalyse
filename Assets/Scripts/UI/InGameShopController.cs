@@ -5,7 +5,7 @@ using DG.Tweening;
 
 public class InGameShopController : MonoBehaviour
 {
-    [SerializeField] GameObject inGameItemPrefab;
+    [SerializeField] GameObject inGameShopItemPrefab;
     [SerializeField] GameObject components;
     PlayerGunsList playerGunsList;
 
@@ -43,7 +43,7 @@ public class InGameShopController : MonoBehaviour
         List<InGameShopItemData> randomInGameShopItems = AllPossibleShopItems().OrderBy(x => rnd.Next()).Take(3).ToList();
         foreach (var inGameShopItem in randomInGameShopItems)
         {
-            InGameShopItemController item = Instantiate(inGameItemPrefab, components.transform).GetComponent<InGameShopItemController>();
+            InGameShopItemController item = Instantiate(inGameShopItemPrefab, components.transform).GetComponent<InGameShopItemController>();
             item.SetData(inGameShopItem);
         }
     }

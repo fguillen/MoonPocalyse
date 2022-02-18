@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5884529149730993061}
   - component: {fileID: 791095634904221008}
   m_Layer: 5
-  m_Name: InGameShopButton
+  m_Name: InGameShopItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

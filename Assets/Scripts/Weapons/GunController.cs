@@ -73,4 +73,9 @@ public class GunController : MonoBehaviour
         numHits = numHits + gunLevel.numHitsIncrease;
         speed = speed + (gunLevel.speedIncrease / 100 * speed);
     }
+
+    public string StatsDescription()
+    {
+        return $"[Level {level}] Cold down {coldDownSeconds}s, Damage: {damage}HP, Num hits: {numHits}, Speed: {speed}";
+    }
 }

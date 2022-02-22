@@ -14,16 +14,12 @@ public class BulletController : MonoBehaviour
     void Awake()
     {
         rBody = GetComponent<Rigidbody2D>();
-
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if(!GameManagerController.Instance.isPaused)
-        {
-            Move();
             CheckIfItMustBeDestroyed();
-        }
     }
 
     public void SetGunData(GunScriptable gunData)
@@ -40,6 +36,7 @@ public class BulletController : MonoBehaviour
         transform.position = playerController.transform.position;
         SetDirection();
         SetRotation();
+        Move();
     }
 
     void SetDirection()
@@ -55,23 +52,22 @@ public class BulletController : MonoBehaviour
 
     public void Move()
     {
-        Vector2 adjustedMovement = direction * gunData.speed * Time.fixedDeltaTime;
-        Vector2 newPos = rBody.position + adjustedMovement;
-        rBody.MovePosition(newPos);
-    }
-
-    void Impact(EnemyController enemyController)
-    {
-        enemyController.Impact(gunData.damage, transform.position);
-        Destroy(gameObject);
+        rBody.velocity = direction * gunData.speed;
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if(other.CompareTag("Enemy"))
-        {
             Impact(other.GetComponent<EnemyController>());
-        }
+    }
+
+    void Impact(EnemyController enemyController)
+    {
+        enemyController.Impact(gunData.damage, transform.position);
+        numHitsMade ++;
+
+        if(numHitsMade >= gunData.numHits)
+            Destroy(gameObject);
     }
 
     void CheckIfItMustBeDestroyed()

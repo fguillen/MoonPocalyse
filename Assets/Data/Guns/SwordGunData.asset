@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ff7bbf7c4736459db79528a9cf29a47, type: 3}
+  m_Name: SwordGunData
+  m_EditorClassIdentifier: 
+  name: Sword
+  description: Sword Description
+  gunSprite: {fileID: -1849636167502969726, guid: 6d94e60f9661f40afa0597ab25ab4b19, type: 3}
+  bulletSprite: {fileID: -4280409550311824700, guid: 004aad77cf0224ab2ac497106f00a892, type: 3}
+  trajectoryKind: 0
+  coldDownSeconds: 0.2
+  damage: 5
+  numHits: 1
+  numProjectiles: 1
+  speed: 10
+  levels:
+  - coldDownDecrease: 0
+    damageIncrease: 20
+    speedIncrease: 30
+    numProjectilesIncrease: 1
+    numHitsIncrease: 0
+  - coldDownDecrease: 20
+    damageIncrease: 0
+    speedIncrease: 30
+    numProjectilesIncrease: 0
+    numHitsIncrease: 0

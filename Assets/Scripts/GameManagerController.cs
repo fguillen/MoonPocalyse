@@ -11,6 +11,7 @@ public class GameManagerController : MonoBehaviour
     public InGameShopController inGameShopController;
     public WeaponsBarController weaponsBarController;
     public bool isPaused = false;
+    public float gameTime = 0;
 
     [SerializeField] GunScriptable firstGun;
     [SerializeField] public List<GunScriptable> allGuns;
@@ -24,6 +25,11 @@ public class GameManagerController : MonoBehaviour
             instance = this;
 
         testScriptable.name = "New name";
+    }
+
+    void Update()
+    {
+        gameTime += Time.deltaTime;
     }
 
     void Start()

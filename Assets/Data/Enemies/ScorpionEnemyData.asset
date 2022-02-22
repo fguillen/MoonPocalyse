@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c836777ffdff04ac99c18757f3d1cd0c, type: 3}
-  m_Name: ZombieEnemyData
+  m_Name: ScorpionEnemyData
   m_EditorClassIdentifier: 
-  life: 1
+  life: 5
   defense: 0
-  sprite: {fileID: -7193745816194719799, guid: 6d94e60f9661f40afa0597ab25ab4b19, type: 3}
+  sprite: {fileID: 2003991443723091533, guid: 6d94e60f9661f40afa0597ab25ab4b19, type: 3}
   speed: 1
   bulletImpactEffect: 5
   mass: 1

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class PlayerController : MonoBehaviour
 {
     public float mana;
+    public float level;
     [SerializeField] Transform gunsCollectionTransform;
 
     [SerializeField] GameObject gunPrefab;

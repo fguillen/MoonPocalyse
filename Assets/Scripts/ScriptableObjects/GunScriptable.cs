@@ -4,10 +4,11 @@ using System.Collections.Generic;
 
 public enum TrajectoryKind
 {
-    directional,
-    closestTarget,
-    circular,
-    fromSky
+    directional = 1,
+    strike = 10,
+    closestTarget = 20,
+    orbital = 30,
+    fromSky = 40
 }
 
 [Serializable]
@@ -70,6 +71,8 @@ public class GunScriptable : ScriptableObject
     public int numProjectiles;
     public float speed;
     public float angularSpeed;
+    public float strikeRange;
+    public float orbitRadius;
 
     public List<GunLevel> levels;
 

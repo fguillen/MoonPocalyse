@@ -8,8 +8,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform gunsCollectionTransform;
 
     [SerializeField] GameObject gunPrefab;
-    [SerializeField] PlayerGunsList playerGunsList;
-    public PlayerMovementController playerMovementController;
+    PlayerGunsList playerGunsList;
+    [HideInInspector] public PlayerMovementController playerMovementController;
 
     void Awake()
     {

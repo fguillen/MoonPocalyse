@@ -2,16 +2,21 @@ using UnityEngine;
 
 public class BulletMovementDirectionalController : BulletMovementBase
 {
+    Vector2 direction;
+    float speed;
+    float angularSpeed;
+
     public override void StartMovement(GunScriptable gunData)
     {
-        Vector2 direction = GameManagerController.Instance.playerController.playerMovementController.lastHorizontalDirection;
+        direction = GameManagerController.Instance.playerController.playerMovementController.lastHorizontalDirection;
+        speed = gunData.speed;
+        angularSpeed = gunData.angularSpeed;
 
         if(direction.x < 0)
             transform.localScale = new Vector3(-1, 1, 1);
-
-        rBody.velocity = direction * gunData.speed;
-        rBody.angularVelocity = gunData.angularSpeed;
     }
 
-    public override void Move() {}
+    public override void Move() {
+        transform.position += (Vector3)(direction * speed * Time.deltaTime);
+    }
 }

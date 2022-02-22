@@ -91,7 +91,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8428667146337320240}
-  - component: {fileID: -5799821172278814213}
   - component: {fileID: 1501128337905792354}
   - component: {fileID: 8190079040349726379}
   m_Layer: 0
@@ -116,27 +115,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &-5799821172278814213
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4716743810265181332}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!58 &1501128337905792354
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -165,6 +143,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b919b1a5df4104b19a06e639bbac05ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletData: {fileID: 11400000, guid: a193a9d6fc3004807a43ccb48be30948, type: 2}
-  spriteRenderer: {fileID: 2522787399865911008}
   distanceToDestroy: 20

@@ -3,9 +3,10 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
-    [SerializeField] GunScriptable gunData;
-    [SerializeField] SpriteRenderer spriteRenderer;
+    GunScriptable gunData;
     [SerializeField] float distanceToDestroy = 14f;
+
+    BulletMovementBase bulletMovement;
 
     int numHitsMade = 0;
     Vector2 direction;
@@ -14,12 +15,18 @@ public class BulletController : MonoBehaviour
     void Awake()
     {
         rBody = GetComponent<Rigidbody2D>();
+        bulletMovement = GetComponent<BulletMovementBase>();
     }
 
     void Update()
     {
         if(!GameManagerController.Instance.isPaused)
             CheckIfItMustBeDestroyed();
+    }
+
+    void FixedUpdate()
+    {
+        bulletMovement.Move();
     }
 
     public void SetGunData(GunScriptable gunData)
@@ -30,29 +37,9 @@ public class BulletController : MonoBehaviour
 
     void Initialize()
     {
-        spriteRenderer.sprite = gunData.bulletSprite;
-
         PlayerController playerController = GameManagerController.Instance.playerController;
         transform.position = playerController.transform.position;
-        SetDirection();
-        SetRotation();
-        Move();
-    }
-
-    void SetDirection()
-    {
-        direction = GameManagerController.Instance.playerController.playerMovementController.lastHorizontalDirection;
-    }
-
-    void SetRotation()
-    {
-        if(direction.x < 0)
-            transform.localScale = new Vector3(-1, 1, 1);
-    }
-
-    public void Move()
-    {
-        rBody.velocity = direction * gunData.speed;
+        bulletMovement.StartMovement(gunData);
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -63,6 +50,7 @@ public class BulletController : MonoBehaviour
 
     void Impact(EnemyController enemyController)
     {
+        // TODO: this is wrong: damage has to be taken from gunController
         enemyController.Impact(gunData.damage, transform.position);
         numHitsMade ++;
 

@@ -6,8 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     public float mana;
     [SerializeField] Transform gunsCollectionTransform;
-    [SerializeField] GameObject gunPrefab;
 
+    [SerializeField] GameObject gunPrefab;
     [SerializeField] PlayerGunsList playerGunsList;
     public PlayerMovementController playerMovementController;
 

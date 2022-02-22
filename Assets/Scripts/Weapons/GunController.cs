@@ -5,7 +5,6 @@ using UnityEngine.Events;
 
 public class GunController : MonoBehaviour
 {
-    [SerializeField] GameObject bulletPrefab;
     [SerializeField] public GunScriptable gunData;
 
     public float coldDownSeconds;
@@ -45,6 +44,7 @@ public class GunController : MonoBehaviour
     public void SetGunData(GunScriptable gunData)
     {
         this.gunData = gunData;
+
         coldDownSeconds = gunData.coldDownSeconds;
         damage = gunData.damage;
         numHits = gunData.numHits;
@@ -68,7 +68,7 @@ public class GunController : MonoBehaviour
 
     void ShootBullet()
     {
-        BulletController bullet = Instantiate(bulletPrefab, GameManagerController.Instance.playerController.transform.position, Quaternion.identity).GetComponent<BulletController>();
+        BulletController bullet = Instantiate(gunData.bulletPrefab, GameManagerController.Instance.playerController.transform.position, Quaternion.identity).GetComponent<BulletController>();
         bullet.SetGunData(gunData);
         lastShootAt = Time.time;
     }

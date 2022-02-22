@@ -10,31 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ff7bbf7c4736459db79528a9cf29a47, type: 3}
-  m_Name: StickGunData
+  m_Name: LaserGunData
   m_EditorClassIdentifier: 
-  name: Stick Gun
-  description: Stick Gun Description
-  gunSprite: {fileID: -6022885623528695077, guid: 6d94e60f9661f40afa0597ab25ab4b19, type: 3}
-  bulletSprite: {fileID: -6022885623528695077, guid: 6d94e60f9661f40afa0597ab25ab4b19, type: 3}
+  name: Laser Gun
+  description: Laser Gun Description
+  bulletPrefab: {fileID: 8139731006630272750, guid: 081b92d5a6a2d4e129ddcb8ad873db2a, type: 3}
+  gunSprite: {fileID: 4759044914093437886, guid: 6d94e60f9661f40afa0597ab25ab4b19, type: 3}
   trajectoryKind: 0
-  coldDownSeconds: 2
-  damage: 7
-  numHits: 2
+  coldDownSeconds: 0.2
+  damage: 5
+  numHits: 1
   numProjectiles: 1
-  speed: 3
+  speed: 10
   levels:
-  - coldDownDecrease: 10
-    damageIncrease: 0
-    speedIncrease: 10
-    numProjectilesIncrease: 0
-    numHitsIncrease: 0
   - coldDownDecrease: 0
-    damageIncrease: 0
-    speedIncrease: 0
+    damageIncrease: 20
+    speedIncrease: 30
     numProjectilesIncrease: 1
     numHitsIncrease: 0
   - coldDownDecrease: 20
-    damageIncrease: 30
-    speedIncrease: 50
+    damageIncrease: 0
+    speedIncrease: 30
     numProjectilesIncrease: 0
     numHitsIncrease: 0

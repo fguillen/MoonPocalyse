@@ -60,8 +60,8 @@ public class GunScriptable : ScriptableObject
 {
     public new string name;
     public string description;
+    public GameObject bulletPrefab;
     public Sprite gunSprite;
-    public Sprite bulletSprite;
     public TrajectoryKind trajectoryKind;
 
     public float coldDownSeconds;
@@ -69,6 +69,7 @@ public class GunScriptable : ScriptableObject
     public int numHits;
     public int numProjectiles;
     public float speed;
+    public float angularSpeed;
 
     public List<GunLevel> levels;
 

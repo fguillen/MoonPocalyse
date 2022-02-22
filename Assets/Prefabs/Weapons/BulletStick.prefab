@@ -7,6 +7,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1501128337905792354, guid: a38cf4fa50a2e47c5bc378da6cde2e2c, type: 3}
+      propertyPath: m_Radius
+      value: 0.21864189
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501128337905792354, guid: a38cf4fa50a2e47c5bc378da6cde2e2c, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501128337905792354, guid: a38cf4fa50a2e47c5bc378da6cde2e2c, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.28
+      objectReference: {fileID: 0}
     - target: {fileID: 2522787399865911008, guid: a38cf4fa50a2e47c5bc378da6cde2e2c, type: 3}
       propertyPath: m_Sprite
       value: 

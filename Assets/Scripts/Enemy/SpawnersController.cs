@@ -7,6 +7,7 @@ public class SpawnersController : MonoBehaviour
     [SerializeField] GameObject enemyPrefab;
     [SerializeField] List<Transform> spawnerTransforms;
     [SerializeField] List<EnemyScriptable> enemiesData;
+    [SerializeField] List<EnemyController> enemyControllers;
 
     Dictionary<EnemyScriptable, float> spawnClock = new Dictionary<EnemyScriptable, float>();
 
@@ -50,6 +51,8 @@ public class SpawnersController : MonoBehaviour
 
         EnemyController enemyController = Instantiate(enemyPrefab, spawnerTransform.position, Quaternion.identity, enemiesContainer.transform).GetComponent<EnemyController>();
         enemyController.SetEnemyData(enemyData);
+
+        enemyControllers.Add(enemyController);
 
         spawnClock[enemyData] = Time.time + (1 / enemyData.SpawnsPerSecond(GameManagerController.Instance.gameTime));
     }

@@ -24,3 +24,5 @@ MonoBehaviour:
   spawnChances:
   - gameSeconds: 0
     spawnsPerSecond: 0.1
+  - gameSeconds: 10
+    spawnsPerSecond: 0.5

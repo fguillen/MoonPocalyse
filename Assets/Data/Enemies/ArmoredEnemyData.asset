@@ -22,5 +22,5 @@ MonoBehaviour:
   damage: 0
   minPlayerLevel: 0
   spawnChances:
-  - gameSeconds: 10
-    spawnsPerSecond: 0.01
+  - gameSeconds: 30
+    spawnsPerSecond: 0.05

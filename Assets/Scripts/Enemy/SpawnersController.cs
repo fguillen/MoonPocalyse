@@ -33,7 +33,7 @@ public class SpawnersController : MonoBehaviour
 
     void CheckSpawnForEnemy(EnemyScriptable enemyData)
     {
-        if(enemyData.minPlayerLevel < GameManagerController.Instance.playerController.level) return;
+        if(enemyData.minPlayerLevel > GameManagerController.Instance.playerController.level) return;
         if(enemyData.SpawnsPerSecond(GameManagerController.Instance.gameTime) == 0) return;
 
         if(Time.time > spawnClock[enemyData])

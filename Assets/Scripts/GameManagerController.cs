@@ -64,5 +64,6 @@ public class GameManagerController : MonoBehaviour
     public void SetPaused(bool value)
     {
         isPaused = value;
+        Time.timeScale = isPaused ? 0f : 1f;
     }
 }

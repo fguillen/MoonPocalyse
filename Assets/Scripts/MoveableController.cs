@@ -16,10 +16,7 @@ public class MoveableController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(
-            !GameManagerController.Instance.isPaused &&
-            !knockedOut
-        )
+        if(!knockedOut)
             Move();
     }
 

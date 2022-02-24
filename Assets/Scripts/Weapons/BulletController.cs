@@ -20,8 +20,7 @@ public class BulletController : MonoBehaviour
 
     void Update()
     {
-        if(!GameManagerController.Instance.isPaused)
-            CheckIfItMustBeDestroyed();
+        CheckIfItMustBeDestroyed();
     }
 
     void FixedUpdate()

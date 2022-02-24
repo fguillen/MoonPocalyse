@@ -23,13 +23,13 @@ public class StatsDisplayController : MonoBehaviour
     public void Show()
     {
         PopulateItems();
-        components.transform.DOLocalMove(Vector3.zero, 0.5f);
+        components.transform.DOLocalMove(Vector3.zero, 0.5f).SetUpdate(true);
         GameManagerController.Instance.SetPaused(true);
     }
 
     public void Hide()
     {
-        components.transform.DOLocalMove(new Vector2(0, 1100), 0.5f);
+        components.transform.DOLocalMove(new Vector2(0, 1100), 0.5f).SetUpdate(true);
         GameManagerController.Instance.SetPaused(false);
     }
 

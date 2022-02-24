@@ -9,12 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8f99686339fd4be4a7b37339ec1697e, type: 3}
-  m_Name: PlayerGunsList
+  m_Script: {fileID: 11500000, guid: 3e49f5ec764f043edb6c2f585cefc1f9, type: 3}
+  m_Name: PlayerLevelProgressionData
   m_EditorClassIdentifier: 
-  guns:
-  - {fileID: 0}
-  - {fileID: 0}
-  onListChanged:
-    m_PersistentCalls:
-      m_Calls: []
+  xpNeededForNextLevels: 00000000000000000000000000000000000000000000000000000000

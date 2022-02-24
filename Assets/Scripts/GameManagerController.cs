@@ -16,6 +16,7 @@ public class GameManagerController : MonoBehaviour
     [SerializeField] GunScriptable firstGun;
     [SerializeField] public List<GunScriptable> allGuns;
     [SerializeField] TestScriptable testScriptable;
+    [SerializeField] PlayerLevelProgressionScriptable playerLevelProgressionData;
 
     void Awake()
     {
@@ -34,7 +35,10 @@ public class GameManagerController : MonoBehaviour
 
     void Start()
     {
-        AcquireGun(firstGun);
+        inGameShopController.Hide();
+        manaBarController.Reset();
+        manaBarController.SetMaxMana(playerLevelProgressionData.XpNeededForNextLevel(playerController.level));
+        playerController.AcquireGun(firstGun);
     }
 
     public void ManaBarFull()
@@ -46,7 +50,9 @@ public class GameManagerController : MonoBehaviour
     {
         inGameShopController.Hide();
         manaBarController.Reset();
+        manaBarController.SetMaxMana(playerLevelProgressionData.XpNeededForNextLevel(playerController.level));
         playerController.AcquireGun(gunData);
+        playerController.NextLevel();
     }
 
     public void CollectMana(float mana)

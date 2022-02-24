@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class PlayerController : MonoBehaviour
 {
     public float mana;
-    public float level;
+    public int level;
     [SerializeField] Transform gunsCollectionTransform;
 
     [SerializeField] GameObject gunPrefab;
@@ -42,5 +42,10 @@ public class PlayerController : MonoBehaviour
         GunController gunController = Instantiate(gunPrefab, gunsCollectionTransform).GetComponent<GunController>();
         gunController.SetGunData(gunData);
         playerGunsList.Add(gunController);
+    }
+
+    public void NextLevel()
+    {
+        level ++;
     }
 }

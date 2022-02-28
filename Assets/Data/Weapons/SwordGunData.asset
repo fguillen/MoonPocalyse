@@ -23,8 +23,7 @@ MonoBehaviour:
   numProjectiles: 1
   speed: 5
   angularSpeed: 0
-  strikeRange: 1
-  orbitRadius: 0
+  range: 2
   levels:
   - coldDownDecrease: 0
     damageIncrease: 20

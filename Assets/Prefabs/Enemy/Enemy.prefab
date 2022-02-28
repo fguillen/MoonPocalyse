@@ -246,6 +246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 1886115753033978757}
+  enemiesSetData: {fileID: 11400000, guid: a483a6a5ac84e4129b52505c72eb02ea, type: 2}
 --- !u!114 &2157539555674477025
 MonoBehaviour:
   m_ObjectHideFlags: 0

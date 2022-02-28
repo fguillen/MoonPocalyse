@@ -63,6 +63,7 @@ public class GunScriptable : ScriptableObject
     public string description;
     public GameObject bulletPrefab;
     public Sprite gunSprite;
+    // public Sprite bulletSprite; // Not easy, it has to be set in the prefab because the collider has to match
     public TrajectoryKind trajectoryKind;
 
     public float coldDownSeconds;
@@ -71,7 +72,7 @@ public class GunScriptable : ScriptableObject
     public int numProjectiles;
     public float speed;
     public float angularSpeed;
-    public float strikeRange;
+    public float range;
 
     public List<GunLevel> levels;
 

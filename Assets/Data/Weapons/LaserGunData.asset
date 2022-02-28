@@ -15,13 +15,15 @@ MonoBehaviour:
   name: Laser Gun
   description: Laser Gun Description
   bulletPrefab: {fileID: 8139731006630272750, guid: 081b92d5a6a2d4e129ddcb8ad873db2a, type: 3}
-  gunSprite: {fileID: 4759044914093437886, guid: 6d94e60f9661f40afa0597ab25ab4b19, type: 3}
+  gunSprite: {fileID: 5384479902572709455, guid: 004aad77cf0224ab2ac497106f00a892, type: 3}
   trajectoryKind: 0
   coldDownSeconds: 0.2
   damage: 5
   numHits: 1
   numProjectiles: 1
   speed: 10
+  angularSpeed: 0
+  range: 0
   levels:
   - coldDownDecrease: 0
     damageIncrease: 20

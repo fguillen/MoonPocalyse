@@ -8,12 +8,22 @@ public class EnemyController : MonoBehaviour
     Rigidbody2D rbody;
 
     [SerializeField] SpriteRenderer spriteRenderer;
+    [SerializeField] EnemiesSetScriptable enemiesSetData;
 
     void Awake()
     {
         enemyHealthController = GetComponent<EnemyHealthController>();
         enemyMovementController = GetComponent<EnemyMovementController>();
         rbody = GetComponent<Rigidbody2D>();
+
+        if(enemiesSetData != null)
+            enemiesSetData.Add(this);
+    }
+
+    void OnDestroy()
+    {
+        if(enemiesSetData != null)
+            enemiesSetData.Remove(this);
     }
 
     public void SetEnemyData(EnemyScriptable enemyData)

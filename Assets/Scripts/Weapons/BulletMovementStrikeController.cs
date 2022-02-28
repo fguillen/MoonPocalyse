@@ -14,8 +14,8 @@ public class BulletMovementStrikeController : BulletMovementBase
 
         sequence = DOTween.Sequence();
 
-        sequence.Append(transform.DOLocalMoveX(transform.position.x + (gunData.strikeRange * direction.x), gunData.strikeRange / gunData.speed).SetEase(Ease.InCirc));
-        sequence.Append(transform.DOLocalMoveX(transform.position.x, gunData.strikeRange / gunData.speed).SetEase(Ease.InCirc));
+        sequence.Append(transform.DOLocalMoveX(transform.position.x + (gunData.range * direction.x), gunData.range / gunData.speed).SetEase(Ease.InCirc));
+        sequence.Append(transform.DOLocalMoveX(transform.position.x, gunData.range / gunData.speed).SetEase(Ease.InCirc));
         sequence.OnComplete(() => Destroy(gameObject));
     }
 

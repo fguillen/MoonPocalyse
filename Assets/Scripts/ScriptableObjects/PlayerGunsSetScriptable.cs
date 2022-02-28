@@ -27,9 +27,4 @@ public class PlayerGunsSetScriptable : RuntimeSetScriptable<GunController>
     {
         gunController.Upgrade();
     }
-
-    void OnEnable()
-    {
-        Items.Clear();
-    }
 }

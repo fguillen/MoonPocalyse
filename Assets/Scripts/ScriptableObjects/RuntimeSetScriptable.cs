@@ -24,9 +24,8 @@ public abstract class RuntimeSetScriptable<T> : ScriptableObject
         return Items;
     }
 
-    // void OnEnable()
-    // {
-    //     Debug.Log("RuntimeSetScriptable Clearing Items List");
-    //     Items.Clear();
-    // }
+    void OnEnable()
+    {
+        Items.Clear();
+    }
 }

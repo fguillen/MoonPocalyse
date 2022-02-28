@@ -38,6 +38,9 @@ TextureImporter:
   - first:
       213: -4280409550311824700
     second: Extra_11
+  - first:
+      213: 5384479902572709455
+    second: Extra_12
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -390,7 +393,7 @@ TextureImporter:
         width: 11
         height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -398,6 +401,27 @@ TextureImporter:
       bones: []
       spriteID: 4c2697c413ee894c0800000000000000
       internalID: -4280409550311824700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra_12
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 73
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f46831571f389ba40800000000000000
+      internalID: 5384479902572709455
       vertices: []
       indices: 
       edges: []

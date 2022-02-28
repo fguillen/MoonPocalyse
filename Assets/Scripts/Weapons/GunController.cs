@@ -7,13 +7,13 @@ public class GunController : MonoBehaviour
 {
     [SerializeField] public GunScriptable gunData;
 
-    public float coldDownSeconds;
-    public float damage;
-    public int numHits;
-    public int numProjectiles;
-    public float speed;
+    [HideInInspector] public float coldDownSeconds;
+    [HideInInspector] public float damage;
+    [HideInInspector] public int numHits;
+    [HideInInspector] public int numProjectiles;
+    [HideInInspector] public float speed;
 
-    public int level;
+    [HideInInspector] public int level;
 
     float lastShootAt;
 
@@ -27,15 +27,18 @@ public class GunController : MonoBehaviour
             onChangeEvent = new UnityEvent();
     }
 
+    void Start()
+    {
+        if(gunData != null)
+            SetGunData(gunData);
+
+        Shoot();
+    }
+
     void Update()
     {
         if(Time.time > lastShootAt + gunData.coldDownSeconds)
             Shoot();
-    }
-
-    void Start()
-    {
-        Shoot();
     }
 
     public void SetGunData(GunScriptable gunData)

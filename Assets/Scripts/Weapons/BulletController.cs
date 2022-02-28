@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
-    GunScriptable gunData;
+    [SerializeField] GunScriptable gunData;
     [SerializeField] float distanceToDestroy = 14f;
 
     BulletMovementBase bulletMovement;
@@ -16,6 +16,12 @@ public class BulletController : MonoBehaviour
     {
         rBody = GetComponent<Rigidbody2D>();
         bulletMovement = GetComponent<BulletMovementBase>();
+    }
+
+    void Start()
+    {
+        if(gunData != null)
+            SetGunData(gunData);
     }
 
     void Update()
@@ -43,12 +49,18 @@ public class BulletController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        CollisionDetected(other);
+    }
+
+    public void CollisionDetected(Collider2D other)
+    {
         if(other.CompareTag("Enemy"))
             Impact(other.GetComponent<EnemyController>());
     }
 
     void Impact(EnemyController enemyController)
     {
+        Debug.Log("BulletController.Impact()");
         // TODO: this is wrong: damage has to be taken from gunController
         enemyController.Impact(gunData.damage, transform.position);
         numHitsMade ++;

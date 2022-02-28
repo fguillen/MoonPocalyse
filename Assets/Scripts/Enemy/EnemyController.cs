@@ -30,7 +30,7 @@ public class EnemyController : MonoBehaviour
         enemyHealthController.Impact(damage);
         Vector2 impactDirection = (Vector2)transform.position - impactPosition;
         impactDirection = new Vector2(impactDirection.x, 0).normalized;
-        Debug.Log($"impactDirection: {impactDirection}, bulletImpactEffect: {enemyData.bulletImpactEffect}");
+        // Debug.Log($"impactDirection: {impactDirection}, bulletImpactEffect: {enemyData.bulletImpactEffect}");
         rbody.velocity = Vector2.zero;
         rbody.AddForce(impactDirection * enemyData.bulletImpactEffect, ForceMode2D.Impulse);
         enemyMovementController.KnockOut(enemyData.knockOutTime);

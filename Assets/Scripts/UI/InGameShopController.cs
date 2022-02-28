@@ -7,11 +7,11 @@ public class InGameShopController : MonoBehaviour
 {
     [SerializeField] GameObject inGameShopItemPrefab;
     [SerializeField] GameObject components;
-    PlayerGunsList playerGunsList;
+    [SerializeField] PlayerGunsSetScriptable playerGunsSet;
 
     void Awake()
     {
-        playerGunsList = PlayerGunsList.Instance;
+        Debug.Assert(playerGunsSet != null);
     }
 
     void Start()
@@ -48,27 +48,16 @@ public class InGameShopController : MonoBehaviour
         }
     }
 
-    // List<GunScriptable> AllUpgradableGuns()
-    // {
-    //     List<GunScriptable> allGuns = GameManagerController.Instance.allGuns;
-    //     List<GunScriptable> noUpgradableGuns = playerGunsList.NoUpgradable().Select( gunController => gunController.gunData ).ToList();
-    //     List<GunScriptable> upgradableGuns = allGuns.Except(noUpgradableGuns).ToList();
-
-    //     Debug.Log($"allGuns: {allGuns.Count}, noUpgradableGuns: {noUpgradableGuns.Count}, upgradableGuns: {upgradableGuns.Count}");
-
-    //     return upgradableGuns;
-    // }
-
     List<InGameShopItemData> AllPossibleShopItems()
     {
         List<GunScriptable> allGuns = GameManagerController.Instance.allGuns;
-        List<GunScriptable> upgradableGuns = playerGunsList.Upgradable().Select( gunController => gunController.gunData ).ToList();
-        List<GunScriptable> noUpgradableGuns = playerGunsList.NoUpgradable().Select( gunController => gunController.gunData ).ToList();
+        List<GunScriptable> upgradableGuns = playerGunsSet.Upgradable().Select( gunController => gunController.gunData ).ToList();
+        List<GunScriptable> noUpgradableGuns = playerGunsSet.NoUpgradable().Select( gunController => gunController.gunData ).ToList();
         List<GunScriptable> newGuns = allGuns.Except(upgradableGuns).Except(noUpgradableGuns).ToList();
 
         List<InGameShopItemData> inGameShopItems = new List<InGameShopItemData>();
 
-        foreach (var gunController in playerGunsList.Upgradable())
+        foreach (var gunController in playerGunsSet.Upgradable())
         {
             InGameShopItemData inGameShopItem = new InGameShopItemData(gunController.gunData, gunController.level + 1);
             inGameShopItems.Add(inGameShopItem);

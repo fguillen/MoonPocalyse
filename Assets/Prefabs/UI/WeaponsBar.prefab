@@ -76,4 +76,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponsBarItemPrefab: {fileID: 5672186680374507744, guid: bc09534fc90804e228345ae5ed16c70c, type: 3}
-  playerGunsList: {fileID: 0}
+  playerGunsSet: {fileID: 11400000, guid: f10a7ded144dc40a59421a8e1228c52d, type: 2}

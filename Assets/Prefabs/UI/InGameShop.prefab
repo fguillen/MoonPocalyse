@@ -215,5 +215,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a888175a8008f4fc7b4f63b858ef2523, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inGameItemPrefab: {fileID: 5884529149730993051, guid: f8f418eed7ea54d438ab6d885de55548, type: 3}
-  components: {fileID: 2685684083038650639}
+  inGameShopItemPrefab: {fileID: 5884529149730993051, guid: f8f418eed7ea54d438ab6d885de55548, type: 3}
+  components: {fileID: 2685684083038650636}
+  playerGunsSet: {fileID: 11400000, guid: f10a7ded144dc40a59421a8e1228c52d, type: 2}

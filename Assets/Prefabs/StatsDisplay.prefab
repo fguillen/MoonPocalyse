@@ -215,3 +215,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statsDisplayItemPrefab: {fileID: 9185200032065727667, guid: 5d187a7ac01d14e16b5bcf8bd32cce0c, type: 3}
   components: {fileID: 1988287309604976214}
+  playerGunsSet: {fileID: 11400000, guid: f10a7ded144dc40a59421a8e1228c52d, type: 2}

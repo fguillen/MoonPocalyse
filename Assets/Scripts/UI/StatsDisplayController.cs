@@ -7,11 +7,11 @@ public class StatsDisplayController : MonoBehaviour
 {
     [SerializeField] GameObject statsDisplayItemPrefab;
     [SerializeField] GameObject components;
-    PlayerGunsList playerGunsList;
+    [SerializeField] PlayerGunsSetScriptable playerGunsSet;
 
     void Awake()
     {
-        playerGunsList = PlayerGunsList.Instance;
+        Debug.Assert(playerGunsSet != null);
     }
 
     void Start()
@@ -39,7 +39,7 @@ public class StatsDisplayController : MonoBehaviour
         foreach (Transform child in components.transform)
             GameObject.Destroy(child.gameObject);
 
-        foreach (var gunController in playerGunsList.guns)
+        foreach (var gunController in playerGunsSet.All())
         {
             StatsDisplayItemController item = Instantiate(statsDisplayItemPrefab, components.transform).GetComponent<StatsDisplayItemController>();
             item.SetData(gunController);

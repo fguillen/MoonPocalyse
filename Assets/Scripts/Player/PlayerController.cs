@@ -9,13 +9,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform gunsCollectionTransform;
 
     [SerializeField] GameObject gunPrefab;
-    PlayerGunsList playerGunsList;
+    [SerializeField] PlayerGunsSetScriptable playerGunsSet;
     [HideInInspector] public PlayerMovementController playerMovementController;
 
     void Awake()
     {
         playerMovementController = GetComponent<PlayerMovementController>();
-        playerGunsList = PlayerGunsList.Instance;
+        Debug.Assert(playerGunsSet != null);
     }
 
     public void AddMana(float mana)
@@ -30,9 +30,9 @@ public class PlayerController : MonoBehaviour
 
     public void AcquireGun(GunScriptable gunData)
     {
-        GunController gunController = playerGunsList.ByName(gunData.name);
+        GunController gunController = playerGunsSet.ByName(gunData.name);
         if(gunController != null)
-            playerGunsList.UpgradeGun(gunController);
+            playerGunsSet.UpgradeGun(gunController);
         else
            AddGun(gunData);
     }
@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
     {
         GunController gunController = Instantiate(gunPrefab, gunsCollectionTransform).GetComponent<GunController>();
         gunController.SetGunData(gunData);
-        playerGunsList.Add(gunController);
+        playerGunsSet.Add(gunController);
     }
 
     public void NextLevel()

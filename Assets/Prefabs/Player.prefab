@@ -229,9 +229,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mana: 0
-  gunsCollection: {fileID: 139041393}
+  level: 0
+  gunsCollectionTransform: {fileID: 139041393}
   gunPrefab: {fileID: 4575924298235838461, guid: 8dd872d70ffb8446caf2030f4feb267e, type: 3}
-  firstGun: {fileID: 11400000, guid: 0ac64fbea8c9b482994193a3ab3f0555, type: 2}
+  playerGunsSet: {fileID: 11400000, guid: f10a7ded144dc40a59421a8e1228c52d, type: 2}
+  playerMovementController: {fileID: 0}
 --- !u!114 &2866495768685996424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,3 +247,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+  lastDirection: {x: 1, y: 0}
+  lastHorizontalDirection: {x: 1, y: 0}

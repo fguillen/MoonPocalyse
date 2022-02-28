@@ -5,12 +5,12 @@ using UnityEngine;
 public class WeaponsBarController : MonoBehaviour
 {
     [SerializeField] GameObject weaponsBarItemPrefab;
-    [SerializeField] PlayerGunsList playerGunsList;
+    [SerializeField] PlayerGunsSetScriptable playerGunsSet;
 
     void Awake()
     {
-        playerGunsList = PlayerGunsList.Instance;
-        playerGunsList.onListChanged.AddListener(ReDraw);
+        Debug.Assert(playerGunsSet != null);
+        playerGunsSet.onListChanged.AddListener(ReDraw);
     }
 
     void ReDraw()
@@ -20,7 +20,7 @@ public class WeaponsBarController : MonoBehaviour
             GameObject.Destroy(child.gameObject);
 
         // Recreate Children
-        foreach (GunController gunController in playerGunsList.guns)
+        foreach (GunController gunController in playerGunsSet.All())
             AddWeapon(gunController);
     }
 

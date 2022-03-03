@@ -3,45 +3,29 @@ using UnityEngine;
 
 public class SpawnersController : MonoBehaviour
 {
+    [SerializeField] LevelEnemiesConfigScriptable levelConfigData;
     [SerializeField] GameObject enemiesContainer;
     [SerializeField] GameObject enemyPrefab;
+    [SerializeField] EnemiesSetScriptable enemiesSetData;
     [SerializeField] List<Transform> spawnerTransforms;
-    [SerializeField] List<EnemyScriptable> enemiesData;
 
-    Dictionary<EnemyScriptable, float> spawnClock = new Dictionary<EnemyScriptable, float>();
-
-    void Awake()
-    {
-        foreach (var enemyData in enemiesData)
-            spawnClock.Add(enemyData, 0);
-    }
+    float lastSpawnAt = 0;
 
     void Update()
     {
-        FollowPlayer();
         CheckSpawns();
     }
 
     void CheckSpawns()
     {
-        foreach (var enemyData in enemiesData)
-        {
-            CheckSpawnForEnemy(enemyData);
-        }
-    }
+        LevelConfig levelConfig = levelConfigData.ActualLevelConfing(GameManagerController.Instance.gameTime);
 
-    void CheckSpawnForEnemy(EnemyScriptable enemyData)
-    {
-        if(enemyData.minPlayerLevel > GameManagerController.Instance.playerController.level) return;
-        if(enemyData.SpawnsPerSecond(GameManagerController.Instance.gameTime) == 0) return;
+        int enemiesToSpawn = levelConfig.minEnemies - enemiesSetData.All().Count;
+        for (int i = 0; i < enemiesToSpawn; i++)
+            SpawnEnemy(levelConfig.ChooseEnemyToSpawn());
 
-        if(Time.time > spawnClock[enemyData])
-            SpawnEnemy(enemyData);
-    }
-
-    void FollowPlayer()
-    {
-        transform.position = GameManagerController.Instance.playerController.transform.position;
+        if(Time.time > (lastSpawnAt + (1 / levelConfig.spawnsPerSecond)))
+            SpawnEnemy(levelConfig.ChooseEnemyToSpawn());
     }
 
     void SpawnEnemy(EnemyScriptable enemyData)
@@ -51,6 +35,6 @@ public class SpawnersController : MonoBehaviour
         EnemyController enemyController = Instantiate(enemyPrefab, spawnerTransform.position, Quaternion.identity, enemiesContainer.transform).GetComponent<EnemyController>();
         enemyController.SetEnemyData(enemyData);
 
-        spawnClock[enemyData] = Time.time + (1 / enemyData.SpawnsPerSecond(GameManagerController.Instance.gameTime));
+        lastSpawnAt = Time.time;
     }
 }

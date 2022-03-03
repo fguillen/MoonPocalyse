@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 813493dabd20848af90267e20df79c61, type: 3}
+  m_Name: LevelEnemiesConfigData
+  m_EditorClassIdentifier: 
+  levelsConfig:
+  - gameSeconds: 0
+    spawnsPerSecond: 0.1
+    minEnemies: 10
+    enemyChances:
+    - item: {fileID: 11400000, guid: 66f15b86a4a774a6d84e4d836158d3b8, type: 2}
+      chances: 35
+    - item: {fileID: 11400000, guid: 2a4c16885a6614c94a252ada8c10d567, type: 2}
+      chances: 38
+    - item: {fileID: 11400000, guid: af9edd2add7e34182aa307f7690cff14, type: 2}
+      chances: 18
+  - gameSeconds: 30
+    spawnsPerSecond: 1
+    minEnemies: 20
+    enemyChances:
+    - item: {fileID: 11400000, guid: ffb99a8fe7c574410a94d6df07d489c8, type: 2}
+      chances: 86

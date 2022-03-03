@@ -16,7 +16,7 @@ MonoBehaviour:
   defense: 0
   sprite: {fileID: -303985587413237012, guid: 6d94e60f9661f40afa0597ab25ab4b19, type: 3}
   speed: 0.8
-  bulletImpactEffect: 5
+  bulletImpactEffect: 2
   mass: 2
   knockOutTime: 0.05
   damage: 0

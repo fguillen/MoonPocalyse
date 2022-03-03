@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class MoveableController : MonoBehaviour
+public class MoveableSnappyController : MonoBehaviour
 {
     [SerializeField] public float speed = 0f;
     protected Vector2 direction = Vector2.zero;
@@ -22,9 +22,7 @@ public class MoveableController : MonoBehaviour
 
     void Move()
     {
-        Vector2 adjustedMovement = direction * speed * Time.fixedDeltaTime;
-        Vector2 newPos = rbody.position + adjustedMovement;
-        rbody.MovePosition(newPos);
+        rbody.velocity = direction * speed;
     }
 
     public void SetDirection(Vector2 direction)

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMovementController : MoveableController
+public class PlayerMovementController : MoveableSnappyController
 {
     public Vector2 lastDirection = Vector2.right;
     public Vector2 lastHorizontalDirection = Vector2.right;

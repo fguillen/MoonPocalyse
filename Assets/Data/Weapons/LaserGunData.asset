@@ -23,7 +23,8 @@ MonoBehaviour:
   numProjectiles: 1
   speed: 10
   angularSpeed: 0
-  range: 0
+  range: 5
+  knockbackForce: 1
   levels:
   - coldDownDecrease: 0
     damageIncrease: 20

@@ -8,6 +8,19 @@ public class BulletMovementClosestEnemyController : BulletMovementBase
 
     [SerializeField] EnemiesSetScriptable enemiesSetData;
 
+    void Update()
+    {
+        CheckIfItMustBeDestroyed();
+    }
+
+    void CheckIfItMustBeDestroyed()
+    {
+        if(Vector3.Distance(GameManagerController.Instance.playerController.transform.position, transform.position) > range)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     public override void StartMovement(GunScriptable gunData)
     {
         speed = gunData.speed;
@@ -37,7 +50,7 @@ public class BulletMovementClosestEnemyController : BulletMovementBase
         Vector2 playerPosition = GameManagerController.Instance.playerController.transform.position;
 
         EnemyController closestEnemyController = null;
-        float closestDistance = range; // Also return null if not close Enemy;
+        float closestDistance = range + 1; // Also return null if not close Enemy;
 
         foreach (var enemyController in enemiesSetData.All())
         {

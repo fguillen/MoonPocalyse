@@ -2498,7 +2498,7 @@ MonoBehaviour:
   weaponsBarController: {fileID: 714503585}
   isPaused: 0
   gameTime: 0
-  firstGun: {fileID: 11400000, guid: 7ef83d68750214dde996fa5793a3b4c6, type: 2}
+  firstGun: {fileID: 11400000, guid: 975f238d729f14ec695a4a48ea0c88b2, type: 2}
   allGuns:
   - {fileID: 11400000, guid: 0ac64fbea8c9b482994193a3ab3f0555, type: 2}
   - {fileID: 11400000, guid: ef9675c8255d048019b8d37e085c430f, type: 2}

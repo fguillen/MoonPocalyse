@@ -17,13 +17,14 @@ MonoBehaviour:
   bulletPrefab: {fileID: 8139731006630272750, guid: 6ab4a04af86bf45bc9794921761b86b8, type: 3}
   gunSprite: {fileID: -1849636167502969726, guid: 6d94e60f9661f40afa0597ab25ab4b19, type: 3}
   trajectoryKind: 0
-  coldDownSeconds: 1
-  damage: 5
+  coldDownSeconds: 2
+  damage: 2
   numHits: 1
   numProjectiles: 1
   speed: 5
   angularSpeed: 0
-  range: 2
+  range: 1.5
+  knockbackForce: 2
   levels:
   - coldDownDecrease: 0
     damageIncrease: 20

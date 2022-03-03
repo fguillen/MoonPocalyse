@@ -73,6 +73,7 @@ public class GunScriptable : ScriptableObject
     public float speed;
     public float angularSpeed;
     public float range;
+    public float knockbackForce;
 
     public List<GunLevel> levels;
 

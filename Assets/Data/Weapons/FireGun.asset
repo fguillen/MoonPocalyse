@@ -24,6 +24,7 @@ MonoBehaviour:
   speed: 5
   angularSpeed: 0
   range: 10
+  knockbackForce: 5
   levels:
   - coldDownDecrease: 0
     damageIncrease: 0

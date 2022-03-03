@@ -18,12 +18,13 @@ MonoBehaviour:
   gunSprite: {fileID: 3884029317713447782, guid: 6d94e60f9661f40afa0597ab25ab4b19, type: 3}
   trajectoryKind: 0
   coldDownSeconds: 3
-  damage: 5
+  damage: 2
   numHits: 2
   numProjectiles: 1
   speed: 0.5
   angularSpeed: 0
-  range: 0
+  range: 2
+  knockbackForce: 2
   levels:
   - coldDownDecrease: 0
     damageIncrease: 20

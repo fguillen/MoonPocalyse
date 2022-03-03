@@ -24,11 +24,6 @@ public class BulletController : MonoBehaviour
             SetGunData(gunData);
     }
 
-    void Update()
-    {
-        CheckIfItMustBeDestroyed();
-    }
-
     void FixedUpdate()
     {
         bulletMovement.Move();
@@ -62,18 +57,10 @@ public class BulletController : MonoBehaviour
     {
         Debug.Log("BulletController.Impact()");
         // TODO: this is wrong: damage has to be taken from gunController
-        enemyController.Impact(gunData.damage, transform.position);
+        enemyController.Impact(gunData.damage, gunData.knockbackForce, transform.position);
         numHitsMade ++;
 
         if(numHitsMade >= gunData.numHits)
             Destroy(gameObject);
-    }
-
-    void CheckIfItMustBeDestroyed()
-    {
-        if(Vector3.Distance(GameManagerController.Instance.playerController.transform.position, transform.position) > distanceToDestroy)
-        {
-            Destroy(gameObject);
-        }
     }
 }

@@ -19,7 +19,6 @@ public class BulletMovementOrbitalController : BulletMovementBase
 
         sequence = DOTween.Sequence();
 
-
         sequence.Append(bodyElement.DOScale(new Vector3(1, 1, 1), animationDuration / 10).SetEase(Ease.Linear));
         sequence.Join(transform.DOLocalRotate(new Vector3(0, 0, 360), animationDuration, RotateMode.FastBeyond360).SetRelative(true).SetEase(Ease.Linear));
         sequence.Insert(animationDuration - (animationDuration / 10), bodyElement.DOScale(new Vector3(0, 0, 0), animationDuration / 10).SetEase(Ease.Linear));

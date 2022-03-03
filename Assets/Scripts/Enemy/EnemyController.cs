@@ -35,14 +35,10 @@ public class EnemyController : MonoBehaviour
         rbody.mass = enemyData.mass;
     }
 
-    public void Impact(float damage, Vector2 impactPosition)
+    public void Impact(float damage, float knockbackForce, Vector2 impactPosition)
     {
         enemyHealthController.Impact(damage);
         Vector2 impactDirection = ((Vector2)transform.position - impactPosition).normalized;
-        // impactDirection = new Vector2(impactDirection.x, 0).normalized;
-        // Debug.Log($"impactDirection: {impactDirection}, bulletImpactEffect: {enemyData.bulletImpactEffect}");
-        // rbody.velocity = Vector2.zero;
-        rbody.AddForce(impactDirection * enemyData.bulletImpactEffect, ForceMode2D.Impulse);
-        // enemyMovementController.KnockOut(enemyData.knockOutTime);
+        rbody.AddForce(impactDirection * knockbackForce, ForceMode2D.Impulse);
     }
 }

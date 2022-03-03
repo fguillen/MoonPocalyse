@@ -2672,10 +2672,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -3650,6 +3650,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1988287311449070319, guid: ed2d1d83d912a4d26aa66e6573b1a1d2, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed2d1d83d912a4d26aa66e6573b1a1d2, type: 3}
 --- !u!114 &8649026444622712641 stripped
@@ -3758,6 +3762,10 @@ PrefabInstance:
     - target: {fileID: 2685684083673918900, guid: 6e9f12b11d8ff42e88ecb1f673897227, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2685684083673918901, guid: 6e9f12b11d8ff42e88ecb1f673897227, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2685684083673918904, guid: 6e9f12b11d8ff42e88ecb1f673897227, type: 3}
       propertyPath: m_Name

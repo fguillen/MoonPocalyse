@@ -13,4 +13,5 @@ public class EnemyScriptable : ScriptableObject
     public float mass;
     public float damage;
     public int minPlayerLevel;
+    public bool isBoss;
 }

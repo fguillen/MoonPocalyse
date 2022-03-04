@@ -29,7 +29,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1804441943408195357}
-  m_Father: {fileID: 1886115753429469807}
+  m_Father: {fileID: 7382086819686532607}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &29748352
@@ -105,7 +105,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1886115753429469807}
+  m_Father: {fileID: 7382086819686532607}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1886115753033978757
@@ -167,7 +167,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1886115753429469807}
+  - component: {fileID: 7382086819686532607}
   - component: {fileID: 1886115753429469795}
   - component: {fileID: 1886115753429469792}
   - component: {fileID: 6065101232086028091}
@@ -180,8 +180,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1886115753429469807
-Transform:
+--- !u!224 &7382086819686532607
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -196,6 +196,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!70 &1886115753429469795
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -247,6 +252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 1886115753033978757}
   enemiesSetData: {fileID: 11400000, guid: a483a6a5ac84e4129b52505c72eb02ea, type: 2}
+  bodyTransform: {fileID: 1886115753033978754}
 --- !u!114 &2157539555674477025
 MonoBehaviour:
   m_ObjectHideFlags: 0

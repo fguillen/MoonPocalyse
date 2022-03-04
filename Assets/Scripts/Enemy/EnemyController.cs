@@ -2,13 +2,14 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    EnemyScriptable enemyData;
+    public EnemyScriptable enemyData;
     EnemyHealthController enemyHealthController;
     EnemyMovementController enemyMovementController;
     Rigidbody2D rbody;
 
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] EnemiesSetScriptable enemiesSetData;
+    [SerializeField] Transform bodyTransform;
 
     void Awake()
     {
@@ -33,6 +34,9 @@ public class EnemyController : MonoBehaviour
         enemyMovementController.speed = enemyData.speed;
         spriteRenderer.sprite = enemyData.sprite;
         rbody.mass = enemyData.mass;
+
+        if(enemyData.isBoss)
+            transform.localScale = new Vector2(2, 2);
     }
 
     public void Impact(float damage, float knockbackForce, Vector2 impactPosition)

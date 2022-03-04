@@ -46,6 +46,18 @@ public class LevelConfig
         List<ItemChances<EnemyScriptable>> listConverted = enemyChances.Cast<ItemChances<EnemyScriptable>>().ToList();
         return EnemyChances.ChooseItemByChances(listConverted);
     }
+
+    List<EnemyScriptable> EligibleEnemies()
+    {
+        return enemyChances.Select( e => e.item ).Distinct().ToList();
+    }
+
+    public int MissingEnemiesCount(List<EnemyScriptable> enemiesPresent)
+    {
+        List<EnemyScriptable> eligibleEnemies = EligibleEnemies();
+
+        return minEnemies - enemiesPresent.Where( e => eligibleEnemies.Contains(e) ).ToList().Count;
+    }
 }
 
 [CreateAssetMenu]

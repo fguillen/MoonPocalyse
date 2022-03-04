@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class SpawnersController : MonoBehaviour
@@ -20,7 +21,7 @@ public class SpawnersController : MonoBehaviour
     {
         LevelConfig levelConfig = levelConfigData.ActualLevelConfing(GameManagerController.Instance.gameTime);
 
-        int enemiesToSpawn = levelConfig.minEnemies - enemiesSetData.All().Count;
+        int enemiesToSpawn = levelConfig.MissingEnemiesCount(enemiesSetData.All().Select( e => e.enemyData ).ToList());
         for (int i = 0; i < enemiesToSpawn; i++)
             SpawnEnemy(levelConfig.ChooseEnemyToSpawn());
 

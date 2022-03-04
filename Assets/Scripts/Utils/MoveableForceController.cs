@@ -19,7 +19,7 @@ public class MoveableForceController : MonoBehaviour
 
     void Move()
     {
-        rbody.AddForce(direction * speed, ForceMode2D.Force);
+        rbody.AddForce(direction * speed * rbody.mass, ForceMode2D.Force);
     }
 
     public void SetDirection(Vector2 direction)

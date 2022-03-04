@@ -23,9 +23,15 @@ MonoBehaviour:
       chances: 38
     - item: {fileID: 11400000, guid: af9edd2add7e34182aa307f7690cff14, type: 2}
       chances: 18
-  - gameSeconds: 30
+  - gameSeconds: 20
     spawnsPerSecond: 1
     minEnemies: 20
     enemyChances:
     - item: {fileID: 11400000, guid: ffb99a8fe7c574410a94d6df07d489c8, type: 2}
       chances: 86
+  - gameSeconds: 10
+    spawnsPerSecond: 0
+    minEnemies: 2
+    enemyChances:
+    - item: {fileID: 11400000, guid: 3bc94d9bddb544997b512dcb6243d85d, type: 2}
+      chances: 100

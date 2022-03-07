@@ -21,12 +21,15 @@ public class SpawnersController : MonoBehaviour
     {
         LevelConfig levelConfig = levelConfigData.ActualLevelConfing(GameManagerController.Instance.gameTime);
 
-        int enemiesToSpawn = levelConfig.MissingEnemiesCount(enemiesSetData.All().Select( e => e.enemyData ).ToList());
-        for (int i = 0; i < enemiesToSpawn; i++)
-            SpawnEnemy(levelConfig.ChooseEnemyToSpawn());
+        if(levelConfig != null) // It can be null if the gameTime is 0 and not LevelConfig at this time
+        {
+            int enemiesToSpawn = levelConfig.MissingEnemiesCount(enemiesSetData.All().Select( e => e.enemyData ).ToList());
+            for (int i = 0; i < enemiesToSpawn; i++)
+                SpawnEnemy(levelConfig.ChooseEnemyToSpawn());
 
-        if(Time.time > (lastSpawnAt + (1 / levelConfig.spawnsPerSecond)))
-            SpawnEnemy(levelConfig.ChooseEnemyToSpawn());
+            if(Time.time > (lastSpawnAt + (1 / levelConfig.spawnsPerSecond)))
+                SpawnEnemy(levelConfig.ChooseEnemyToSpawn());
+        }
     }
 
     void SpawnEnemy(EnemyScriptable enemyData)

@@ -69,7 +69,7 @@ public class LevelEnemiesConfigScriptable : ScriptableObject
     {
         LevelConfig levelConfig =
             levelsConfig.
-                Where( e => e.gameSeconds < atSecond ).
+                Where( e => e.gameSeconds <= atSecond ).
                 OrderBy( e => e.gameSeconds ).
                 LastOrDefault();
 
